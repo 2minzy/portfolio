@@ -1,42 +1,59 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import { Link } from "gatsby"
+import styled from "styled-components"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+const Container = styled.div`
+  display: flex;
+  font-family: "Poppins", sans-serif;
+  justify-content: space-between;
+  margin: 40px 80px;
+  font-size: 0.8rem;
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+  .logo {
+    color: white;
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  li {
+    padding: 8px 12px;
+    margin: 0 4px;
+    list-style: none;
+    cursor: pointer;
+  }
+`
+const AboutText = styled.p`
+  margin: 40px 80px;
+  font-size: 1rem;
+`
+
+const header = () => {
+  return (
+    <Container>
+      <Link to="/" className="logo">
+        Minji Lee
+        <br />
+        Frontend Developer
+      </Link>
+      <AboutText>
+        Hi! I'm a Minji Lee, based in Seoul
+        <br />
+        I am a passionate and creative Front-end Developer
+        <br />
+        with experience in UI/UX Design and creative arts.
+      </AboutText>
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Projects</li>
+        <li>Contact</li>
+      </ul>
+    </Container>
+  )
 }
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header
+export default header
