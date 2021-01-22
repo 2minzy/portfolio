@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react"
 import Header from "../components/Header"
-import profile from "../../public/static/minji_dark.jpg"
+import LandingVideo from "../components/LandingVideo"
+import About from "../components/About"
 import styled, { createGlobalStyle } from "styled-components"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -9,17 +10,16 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 gsap.registerPlugin(ScrollTrigger)
 
 const GlobalStyle = createGlobalStyle`
-
-
   body {
-    background-color: #0d0d0d;
+    // #0d0d0d;
+    background-color: black;
     color: white;
-    overflow-x: auto;
     height: 4000px;
   }
 
   a {
     text-decoration: none;
+    outline: none;
   }
 
   button {
@@ -28,35 +28,28 @@ const GlobalStyle = createGlobalStyle`
     text-align: center;
   }
 `
-const ScrollDownIcon = styled.div``
 
 const TextContainer = styled.div`
-  margin-top: 300px;
+  margin-top: 400px;
 `
 
 const FrontText = styled.div`
   position: absolute;
-  font-family: "Monument";
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: "Monument", sans-serif;
   color: transparent;
-
   font-size: 6rem;
   -webkit-text-stroke: 0.02em #fff;
 `
 
 const BackText = styled.div`
   position: relative;
-
-  font-family: "Monument";
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: "Monument", sans-serif;
   font-size: 6rem;
   z-index: -1;
-`
-const ProfileImg = styled.div`
-  position: absolute;
-  margin-left: 400px;
-  img {
-    width: 1100px;
-  }
-  z-index: 0;
 `
 
 const IndexPage = () => {
@@ -113,10 +106,8 @@ const IndexPage = () => {
     <div ref={refStart}>
       <GlobalStyle />
       <Header />
-      <ScrollDownIcon>Scroll Down</ScrollDownIcon>
-      <ProfileImg>
-        <img src={profile} alt="" />
-      </ProfileImg>
+
+      <LandingVideo />
       <TextContainer>
         <FrontText ref={refText1}>
           HI I'M MINJI LEE FRONTEND DEVELOPER
@@ -125,6 +116,7 @@ const IndexPage = () => {
         <FrontText ref={refText3}>WHO HAS PASSION IN UI/UX DESIGN</FrontText>
         <BackText ref={refText4}>WHO HAS PASSION IN UI/UX DESIGN</BackText>
       </TextContainer>
+      <About />
     </div>
   )
 }

@@ -6,7 +6,7 @@ const Container = styled.div`
   display: flex;
   font-family: "Poppins", sans-serif;
   justify-content: space-between;
-  margin: 40px 80px;
+  margin: 40px 80px 0 80px;
   font-size: 0.8rem;
 
   .logo {
@@ -24,6 +24,10 @@ const Container = styled.div`
     margin: 0 4px;
     list-style: none;
     cursor: pointer;
+
+    &:hover {
+      color: #2aaeba;
+    }
   }
 `
 const AboutText = styled.p`
@@ -40,11 +44,11 @@ const header = () => {
         Frontend Developer
       </Link>
       <AboutText>
-        Hi! I'm a Minji Lee, based in Seoul
+        Hi! I'm Minji Lee, based in Seoul
         <br />
         I am a passionate and creative Front-end Developer
         <br />
-        with experience in UI/UX Design and creative arts.
+        with experience in UI/UX Design, Fine Arts and Computer Science.
       </AboutText>
       <ul>
         <li>Home</li>
