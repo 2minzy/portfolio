@@ -7,11 +7,7 @@ const Container = styled.div`
   font-family: "Poppins", sans-serif;
   justify-content: space-between;
   margin: 40px 80px 0 80px;
-  font-size: 0.8rem;
-
-  .logo {
-    color: white;
-  }
+  font-size: 0.9rem;
 
   ul {
     display: flex;
@@ -38,7 +34,7 @@ const AboutText = styled.p`
 const header = () => {
   return (
     <Container>
-      <Link to="/" className="logo">
+      <Link to="/">
         Minji Lee
         <br />
         Frontend Developer

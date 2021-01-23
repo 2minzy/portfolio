@@ -2,6 +2,9 @@ import React, { useRef, useEffect } from "react"
 import Header from "../components/Header"
 import LandingVideo from "../components/LandingVideo"
 import About from "../components/About"
+import Projects from "../components/Projects"
+import Contact from "../components/Contact"
+import Footer from "../components/Footer"
 import styled, { createGlobalStyle } from "styled-components"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -15,11 +18,13 @@ const GlobalStyle = createGlobalStyle`
     background-color: black;
     color: white;
     height: 4000px;
+    box-sizing: border-box;
   }
 
   a {
     text-decoration: none;
     outline: none;
+    color: white
   }
 
   button {
@@ -106,7 +111,6 @@ const IndexPage = () => {
     <div ref={refStart}>
       <GlobalStyle />
       <Header />
-
       <LandingVideo />
       <TextContainer>
         <FrontText ref={refText1}>
@@ -117,6 +121,9 @@ const IndexPage = () => {
         <BackText ref={refText4}>WHO HAS PASSION IN UI/UX DESIGN</BackText>
       </TextContainer>
       <About />
+      <Projects />
+      <Contact />
+      <Footer />
     </div>
   )
 }

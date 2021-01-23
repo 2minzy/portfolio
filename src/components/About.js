@@ -3,18 +3,35 @@ import styled from "styled-components"
 import profile from "../../public/static/minji_dark.jpg"
 
 const Container = styled.div`
-  margin: 700px 0 0 200px;
+  margin: 800px 200px 0 200px;
 
   .eng {
-    margin-top: 3rem;
+    margin-top: 2rem;
+    font-family: "Poppins", sans-serif;
     font-size: 1.2rem;
     line-height: 2rem;
   }
 
   .ko {
-    margin-top: 3rem;
+    margin-top: 2rem;
     font-family: "S-CoreDream-3Light", sans-serif;
     line-height: 2rem;
+  }
+
+  .eduEng {
+    font-size: 0.9rem;
+  }
+
+  .eduKo {
+    font-size: 0.8rem;
+  }
+
+  .eduTitleEng {
+    font-size: 1.1rem;
+  }
+
+  .eduTitleKo {
+    font-size: 1rem;
   }
 `
 
@@ -56,11 +73,24 @@ const TextContainer = styled.div`
 const LanguageBox = styled.span``
 
 const EducationContainer = styled.div`
-  margin-top: 2rem;
+  .eduContainer {
+    display: flex;
+
+    div {
+      flex: 1;
+    }
+  }
+`
+
+const EduTitle = styled.div`
+  display: inline-block;
+  margin-top: 3rem;
+  border-bottom: 2px solid;
+  padding-bottom: 3px;
 `
 
 const About = () => {
-  const [language, setLanguage] = useState("eng")
+  const [language, setLanguage] = useState("ko")
 
   return (
     <Container>
@@ -81,10 +111,9 @@ const About = () => {
               <br />
               Communication Design, Fine Arts and Computer Science.
               <br />
-              A constant learner who enjoys learning new things.
+              As a constant learner who enjoys learning new things,
               <br />
-              I strive to achieve scalable web applications with enha nced
-              UI/UX.
+              I strive to achieve scalable web applications with enhanced UI/UX.
               <br />
               My multidisciplinary approach allows to think creatively and
               <br />
@@ -109,38 +138,78 @@ const About = () => {
           )}
         </TextContainer>
       </AboutContent>
+
       <EducationContainer>
         {language === "eng" ? (
-          <div className="eng">
-            <div>Fine Arts - Sunhwa Arts High School</div>
+          <div className="eduContainer">
             <div>
-              2018-2019 Exchange Student Program, Communication Design -
-              Hochschule Mainz, University of Applied Sciences
+              <EduTitle className="eduTitleEng">Education</EduTitle>
+              <div className="eng eduEng">
+                <div>Fine Arts - Sunhwa Arts High School</div>
+                <div>
+                  2018-2019 Exchange Student Program, Communication Design -
+                  Hochschule Mainz,
+                  <br /> University of Applied Sciences
+                </div>
+                <div>
+                  2020 Start-up & computer programming student club - LikeLion
+                </div>
+                <div>
+                  BFA, Fine Arts - Seoul National University of Science and
+                  Technology{" "}
+                </div>
+                <div>
+                  Minor, Computer Science and Engineering - Seoul National
+                  University of Science and Technology
+                </div>
+              </div>
             </div>
+
             <div>
-              2020 Start-up & computer programming student club - LikeLion
-            </div>
-            <div>
-              BFA, Fine Arts - Seoul National University of Science and
-              Technology{" "}
-            </div>
-            <div>
-              Minor, Computer Science and Engineering - Seoul National
-              University of Science and Technology
+              <EduTitle className="eduTitleEng">Volunteer Experience</EduTitle>
+              <div className="eng eduEng">
+                2019-2020 Buddy Program - International Student Club of Seoul
+                National University of Science and Technology
+              </div>
+
+              <EduTitle className="eduTitleEng">Award</EduTitle>
+              <div className="eng eduEng">
+                2020 Exellence Awards, start-up contest by green campus town in
+                Nowon{" "}
+              </div>
             </div>
           </div>
         ) : (
-          <div className="ko">
-            <div>서양화과 - 선화예술고등학교</div>
+          <div className="eduContainer">
             <div>
-              2018-2019 교환학생 프로그램, 커뮤니케이션 디자인 - 마인츠
-              공과대학교, 독일
+              <EduTitle className="eduTitleKo">교육</EduTitle>
+              <div className="ko eduKo">
+                <div>서양화과 - 선화예술고등학교</div>
+                <div>
+                  2018-2019 교환학생 프로그램, 커뮤니케이션 디자인 - 마인츠
+                  공과대학교, 독일
+                </div>
+                <div>
+                  2020 대학 연합 창업 & 프로그래밍 동아리 활동 - 멋쟁이 사자처럼
+                  8기
+                </div>
+                <div>조형예술학과 학사 - 서울과학기술대학교</div>
+                <div>컴퓨터공학 부전공 - 서울과학기술대학교</div>
+              </div>
             </div>
+
             <div>
-              2020 대학 연합 창업 & 프로그래밍 동아리 활동 - 멋쟁이 사자처럼 8기
+              <EduTitle className="eduTitleKo">봉사활동 경험</EduTitle>
+              <div className="ko eduKo">
+                2019-2020 외국인 유학생, 교환학생 버디 프로그램 -
+                서울과학기술대학교 국제 학생회
+              </div>
+
+              <EduTitle className="eduTitleKo">수상</EduTitle>
+              <div className="ko eduKo">
+                2020 우수상, 노원 그린캠퍼스타운 스타트업 창업 콘테스트
+              </div>
             </div>
-            <div>조형예술학과 학사 - 서울과학기술대학교</div>
-            <div>컴퓨터공학 부전공 - 서울과학기술대학교</div>
           </div>
         )}
       </EducationContainer>
