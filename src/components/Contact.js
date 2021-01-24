@@ -4,7 +4,7 @@ import styled from "styled-components"
 const Container = styled.div`
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
-  margin: 1000px 200px;
+  margin: 400px 200px;
   display: flex;
   align-items: center;
 `

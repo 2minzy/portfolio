@@ -98,6 +98,7 @@ const Title2 = styled.div`
 const ProjectA = styled.div`
   position: relative;
   display: flex;
+  margin-bottom: -200px;
 `
 
 const ProjectA1 = styled.div`
@@ -113,6 +114,7 @@ const ProjectA1 = styled.div`
 `
 
 const ProjectA2 = styled.div`
+  margin-top: 300px;
   img {
     width: 500px;
     object-fit: cover;
@@ -127,7 +129,6 @@ const ProjectA3 = styled.div`
 
 const ProjectB1 = styled.div`
   display: flex;
-
   align-items: center;
 
   img {
@@ -156,6 +157,7 @@ const ProjectC2 = styled.div`
 `
 
 const ProjectD1 = styled.div`
+  margin-top: 400px;
   display: flex;
   align-items: center;
 
@@ -174,24 +176,56 @@ const Projects = () => {
   const refSection = useRef(null)
   const refTitle = useRef(null)
   const refTitle2 = useRef(null)
-  const refImage = useRef(null)
+  const refImage1 = useRef(null)
   const refImage2 = useRef(null)
   const refImage3 = useRef(null)
+  const refSeoulDesc = useRef(null)
+  const refImageT = useRef(null)
   const refImage4 = useRef(null)
   const refImage5 = useRef(null)
+  const refAsanaDesc = useRef(null)
+
+  useEffect(() => {
+    gsap.to(refTitle.current, {
+      yPercent: -220,
+      ease: "none",
+      scrollTrigger: {
+        trigger: refSection.current,
+
+        scrub: true,
+      },
+    })
+
+    gsap.to(refImage1.current, {
+      yPercent: -120,
+      ease: "none",
+      scrollTrigger: {
+        trigger: refSection.current,
+
+        scrub: true,
+      },
+    })
+
+    gsap.to(refTitle2.current, {
+      yPercent: -100,
+      ease: "none",
+      scrollTrigger: {
+        trigger: refSection.current,
+
+        scrub: true,
+      },
+    })
+  }, [])
 
   useEffect(() => {
     let proxy = { skew: 0 },
-      skewSetter = gsap.quickSetter(refImage2.current, "skewY", "deg"), // fast
-      skewSetter2 = gsap.quickSetter(refImage3.current, "skewY", "deg"),
-      skewSetter3 = gsap.quickSetter(refImage4.current, "skewY", "deg"),
-      skewSetter4 = gsap.quickSetter(refImage5.current, "skewY", "deg"),
-      clamp = gsap.utils.clamp(-10, 10) // don't let the skew go beyond 20 degrees.
+      skewSetter = gsap.quickSetter(refImage2.current, "skewY", "deg"),
+      clamp = gsap.utils.clamp(-10, 10)
 
     ScrollTrigger.create({
       onUpdate: self => {
         let skew = clamp(self.getVelocity() / -200)
-        // only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
+
         if (Math.abs(skew) > Math.abs(proxy.skew)) {
           proxy.skew = skew
           gsap.to(proxy, {
@@ -205,16 +239,43 @@ const Projects = () => {
       },
     })
 
-    // make the right edge "stick" to the scroll bar. force3D: true improves performance
     gsap.set(refImage2.current, {
       transformOrigin: "left center",
       force3D: true,
     })
 
+    gsap.to(refImage2.current, {
+      yPercent: -100,
+      ease: "none",
+      scrollTrigger: {
+        trigger: refSection.current,
+
+        scrub: true,
+      },
+    })
+  }, [])
+
+  useEffect(() => {
+    gsap.to(refSeoulDesc.current, {
+      yPercent: -100,
+      ease: "none",
+      scrollTrigger: {
+        trigger: refSection.current,
+
+        scrub: true,
+      },
+    })
+  })
+
+  useEffect(() => {
+    let proxy = { skew: 0 },
+      skewSetter2 = gsap.quickSetter(refImage3.current, "skewY", "deg"),
+      clamp = gsap.utils.clamp(-10, 10)
+
     ScrollTrigger.create({
       onUpdate: self => {
         let skew = clamp(self.getVelocity() / -200)
-        // only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
+
         if (Math.abs(skew) > Math.abs(proxy.skew)) {
           proxy.skew = skew
           gsap.to(proxy, {
@@ -227,16 +288,45 @@ const Projects = () => {
         }
       },
     })
+  }, [])
 
-    gsap.set(refImage3.current, {
-      transformOrigin: "left center",
-      force3D: true,
-    })
+  useEffect(() => {
+    let proxy = { skew: 0 },
+      skewSetter6 = gsap.quickSetter(refImageT.current, "skewY", "deg"),
+      clamp = gsap.utils.clamp(-10, 10)
 
     ScrollTrigger.create({
       onUpdate: self => {
         let skew = clamp(self.getVelocity() / -200)
-        // only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
+
+        if (Math.abs(skew) > Math.abs(proxy.skew)) {
+          proxy.skew = skew
+          gsap.to(proxy, {
+            skew: 0,
+            duration: 0.3,
+            ease: "none",
+            overwrite: true,
+            onUpdate: () => skewSetter6(proxy.skew),
+          })
+        }
+      },
+    })
+
+    gsap.set(refImageT.current, {
+      transformOrigin: "right center",
+      force3D: true,
+    })
+  }, [])
+
+  useEffect(() => {
+    let proxy = { skew: 0 },
+      skewSetter3 = gsap.quickSetter(refImage4.current, "skewY", "deg"),
+      clamp = gsap.utils.clamp(-10, 10)
+
+    ScrollTrigger.create({
+      onUpdate: self => {
+        let skew = clamp(self.getVelocity() / -200)
+
         if (Math.abs(skew) > Math.abs(proxy.skew)) {
           proxy.skew = skew
           gsap.to(proxy, {
@@ -254,36 +344,27 @@ const Projects = () => {
       transformOrigin: "left center",
       force3D: true,
     })
+  }, [])
 
-    gsap.to(refTitle.current, {
-      yPercent: -220,
+  useEffect(() => {
+    gsap.to(refImage5.current, {
+      yPercent: 10,
       ease: "none",
       scrollTrigger: {
-        trigger: refSection.current,
-        // start: "top bottom", // the default values
-        // end: "bottom top",
+        trigger: refAsanaDesc.current,
+
         scrub: true,
       },
     })
+  }, [])
 
-    gsap.to(refImage.current, {
-      yPercent: -120,
+  useEffect(() => {
+    gsap.to(refAsanaDesc.current, {
+      yPercent: 100,
       ease: "none",
       scrollTrigger: {
-        trigger: refSection.current,
-        // start: "top bottom", // the default values
-        // end: "bottom top",
-        scrub: true,
-      },
-    })
+        trigger: refImage5.current,
 
-    gsap.to(refTitle2.current, {
-      yPercent: -100,
-      ease: "none",
-      scrollTrigger: {
-        trigger: refSection.current,
-        // start: "top bottom", // the default values
-        // end: "bottom top",
         scrub: true,
       },
     })
@@ -298,7 +379,7 @@ const Projects = () => {
 
       <div className="projectContainer">
         <ProjectA>
-          <ProjectA1 ref={refImage}>
+          <ProjectA1 ref={refImage1}>
             <img src={momoLanding} alt="" />
             <div className="description">
               <p>
@@ -336,7 +417,7 @@ const Projects = () => {
         <div>
           <img src={seoulLanding} alt="" ref={refImage3} />
         </div>
-        <div className="description">
+        <div className="description" ref={refSeoulDesc}>
           <p>
             SEOULITE <br />
             Seoul wifi map <br />
@@ -365,11 +446,11 @@ const Projects = () => {
           </p>
         </div>
 
-        <div ref={refImage4}>
-          <ProjectC1>
+        <div>
+          <ProjectC1 ref={refImageT}>
             <img src={uiA} alt="" />
           </ProjectC1>
-          <ProjectC2>
+          <ProjectC2 ref={refImage4}>
             <img src={uiB} alt="" />
           </ProjectC2>
         </div>
@@ -380,7 +461,7 @@ const Projects = () => {
           <img src={asanaLanding} alt="" />
         </div>
 
-        <div className="description">
+        <div className="description" ref={refAsanaDesc}>
           <p>
             ASANA <br />
             Meditation music streaming service <br />
