@@ -1,6 +1,11 @@
-import React, { useState } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import styled from "styled-components"
 import profile from "../../public/static/minji_dark.jpg"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+// register ScrollTrigger
+gsap.registerPlugin(ScrollTrigger)
 
 const Container = styled.div`
   margin: 800px 200px 0 200px;
@@ -40,6 +45,8 @@ const Title = styled.div`
   margin-bottom: 2rem;
   font-size: 6rem;
   font-family: "Monument", sans-serif;
+  z-index: 1;
+
   div {
     line-height: 5rem;
   }
@@ -49,6 +56,7 @@ const Title = styled.div`
     color: transparent;
   }
 `
+
 const AboutContent = styled.div`
   display: flex;
 `
@@ -84,7 +92,7 @@ const EducationContainer = styled.div`
 
 const EduTitle = styled.div`
   display: inline-block;
-  margin-top: 3rem;
+
   border-bottom: 2px solid;
   padding-bottom: 3px;
 `
@@ -92,14 +100,43 @@ const EduTitle = styled.div`
 const About = () => {
   const [language, setLanguage] = useState("ko")
 
+  const refSection = useRef(null)
+  const refTitle = useRef(null)
+  const refProfile = useRef(null)
+
+  useEffect(() => {
+    gsap.to(refTitle.current, {
+      yPercent: -220,
+      ease: "none",
+      scrollTrigger: {
+        trigger: refSection.current,
+        // start: "top bottom", // the default values
+        // end: "bottom top",
+        scrub: true,
+      },
+    })
+
+    gsap.to(refProfile.current, {
+      yPercent: -50,
+      ease: "none",
+      scrollTrigger: {
+        trigger: refSection.current,
+        // start: "top bottom", // the default values
+        // end: "bottom top",
+        scrub: true,
+      },
+    })
+  }, [])
+
   return (
-    <Container>
-      <Title>
+    <Container ref={refSection}>
+      <Title ref={refTitle}>
         <div>ABOUT ME</div>
         <div className="transparent">ABOUT ME</div>
       </Title>
+
       <AboutContent>
-        <ImageContainer>
+        <ImageContainer ref={refProfile}>
           <img src={profile} alt=""></img>
         </ImageContainer>
         <TextContainer>

@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
     // #0d0d0d;
     background-color: black;
     color: white;
-    height: 4000px;
+    height: 100%;
     box-sizing: border-box;
   }
 
@@ -36,6 +36,8 @@ const GlobalStyle = createGlobalStyle`
 
 const TextContainer = styled.div`
   margin-top: 400px;
+  position: relative;
+  overflow-x: hidden;
 `
 
 const FrontText = styled.div`

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 // import { Link } from "gatsby"
 import styled from "styled-components"
 import momoLanding from "../../public/static/momoLanding.jpg"
@@ -8,9 +8,14 @@ import asanaLanding from "../../public/static/asanaLanding.jpg"
 import seoulLanding from "../../public/static/seoulLanding.jpg"
 import uiA from "../../public/static/uiA.jpg"
 import uiB from "../../public/static/uiB.jpg"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+// register ScrollTrigger
+gsap.registerPlugin(ScrollTrigger)
 
 const Container = styled.div`
-  margin-top: 200px;
+  margin-top: 400px;
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
 
@@ -19,7 +24,7 @@ const Container = styled.div`
   }
 
   .momoDetail {
-    margin-left: 3rem;
+    margin-left: 2rem;
   }
 
   .link {
@@ -48,22 +53,11 @@ const Container = styled.div`
     }
   }
 `
-const ProjectA1 = styled.div`
-  img {
-    margin-top: 200px;
-    position: relative;
-    width: 1000px;
-    object-fit: cover;
-  }
-
-  .description {
-    margin: 100px;
-  }
-`
 
 const Title = styled.div`
-  position: absolute;
   color: grey;
+  position: absolute;
+  z-index: 1;
   margin-left: 1500px;
   font-size: 6rem;
   font-family: "Monument", sans-serif;
@@ -83,7 +77,7 @@ const Title = styled.div`
 
 const Title2 = styled.div`
   position: absolute;
-  margin: 200px 0 0 200px;
+  margin: 1000px 0 0 200px;
   color: grey;
   font-size: 6rem;
   font-family: "Monument", sans-serif;
@@ -101,9 +95,25 @@ const Title2 = styled.div`
   }
 `
 
+const ProjectA = styled.div`
+  position: relative;
+  display: flex;
+`
+
+const ProjectA1 = styled.div`
+  img {
+    margin-top: 200px;
+    width: 1000px;
+    object-fit: cover;
+  }
+
+  .description {
+    margin: 100px;
+  }
+`
+
 const ProjectA2 = styled.div`
   img {
-    margin-top: 500px;
     width: 500px;
     object-fit: cover;
   }
@@ -117,11 +127,11 @@ const ProjectA3 = styled.div`
 
 const ProjectB1 = styled.div`
   display: flex;
-  margin-top: 200px;
+
   align-items: center;
 
   img {
-    margin: 0 300px 0 300px;
+    margin: 0 300px;
     position: relative;
     width: 600px;
     object-fit: cover;
@@ -139,7 +149,6 @@ const ProjectC1 = styled.div`
 
 const ProjectC2 = styled.div`
   img {
-    margin-top: 0;
     position: relative;
     width: 800px;
     object-fit: cover;
@@ -151,7 +160,6 @@ const ProjectD1 = styled.div`
   align-items: center;
 
   img {
-    margin-top: 200px;
     position: relative;
     width: 1000px;
     object-fit: cover;
@@ -163,34 +171,158 @@ const ProjectD1 = styled.div`
 `
 
 const Projects = () => {
+  const refSection = useRef(null)
+  const refTitle = useRef(null)
+  const refTitle2 = useRef(null)
+  const refImage = useRef(null)
+  const refImage2 = useRef(null)
+  const refImage3 = useRef(null)
+  const refImage4 = useRef(null)
+  const refImage5 = useRef(null)
+
+  useEffect(() => {
+    let proxy = { skew: 0 },
+      skewSetter = gsap.quickSetter(refImage2.current, "skewY", "deg"), // fast
+      skewSetter2 = gsap.quickSetter(refImage3.current, "skewY", "deg"),
+      skewSetter3 = gsap.quickSetter(refImage4.current, "skewY", "deg"),
+      skewSetter4 = gsap.quickSetter(refImage5.current, "skewY", "deg"),
+      clamp = gsap.utils.clamp(-10, 10) // don't let the skew go beyond 20 degrees.
+
+    ScrollTrigger.create({
+      onUpdate: self => {
+        let skew = clamp(self.getVelocity() / -200)
+        // only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
+        if (Math.abs(skew) > Math.abs(proxy.skew)) {
+          proxy.skew = skew
+          gsap.to(proxy, {
+            skew: 0,
+            duration: 0.3,
+            ease: "none",
+            overwrite: true,
+            onUpdate: () => skewSetter(proxy.skew),
+          })
+        }
+      },
+    })
+
+    // make the right edge "stick" to the scroll bar. force3D: true improves performance
+    gsap.set(refImage2.current, {
+      transformOrigin: "left center",
+      force3D: true,
+    })
+
+    ScrollTrigger.create({
+      onUpdate: self => {
+        let skew = clamp(self.getVelocity() / -200)
+        // only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
+        if (Math.abs(skew) > Math.abs(proxy.skew)) {
+          proxy.skew = skew
+          gsap.to(proxy, {
+            skew: 0,
+            duration: 0.3,
+            ease: "none",
+            overwrite: true,
+            onUpdate: () => skewSetter2(proxy.skew),
+          })
+        }
+      },
+    })
+
+    gsap.set(refImage3.current, {
+      transformOrigin: "left center",
+      force3D: true,
+    })
+
+    ScrollTrigger.create({
+      onUpdate: self => {
+        let skew = clamp(self.getVelocity() / -200)
+        // only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
+        if (Math.abs(skew) > Math.abs(proxy.skew)) {
+          proxy.skew = skew
+          gsap.to(proxy, {
+            skew: 0,
+            duration: 0.3,
+            ease: "none",
+            overwrite: true,
+            onUpdate: () => skewSetter3(proxy.skew),
+          })
+        }
+      },
+    })
+
+    gsap.set(refImage4.current, {
+      transformOrigin: "left center",
+      force3D: true,
+    })
+
+    gsap.to(refTitle.current, {
+      yPercent: -220,
+      ease: "none",
+      scrollTrigger: {
+        trigger: refSection.current,
+        // start: "top bottom", // the default values
+        // end: "bottom top",
+        scrub: true,
+      },
+    })
+
+    gsap.to(refImage.current, {
+      yPercent: -120,
+      ease: "none",
+      scrollTrigger: {
+        trigger: refSection.current,
+        // start: "top bottom", // the default values
+        // end: "bottom top",
+        scrub: true,
+      },
+    })
+
+    gsap.to(refTitle2.current, {
+      yPercent: -100,
+      ease: "none",
+      scrollTrigger: {
+        trigger: refSection.current,
+        // start: "top bottom", // the default values
+        // end: "bottom top",
+        scrub: true,
+      },
+    })
+  }, [])
+
   return (
-    <Container>
-      <Title>
+    <Container ref={refSection}>
+      <Title ref={refTitle}>
         <div>PROJECTS</div>
         <div className="transparent">PROJECTS</div>
       </Title>
 
       <div className="projectContainer">
-        <ProjectA1>
-          <img src={momoLanding} alt="" />
-          <div className="description">
-            <p>
-              MOMO <br />
-              E-commerce Fashion Store <br />
-              Website
-            </p>
-            <div className="link">
-              <a href="/">VIEW PROJECT</a>
+        <ProjectA>
+          <ProjectA1 ref={refImage}>
+            <img src={momoLanding} alt="" />
+            <div className="description">
+              <p>
+                MOMO <br />
+                E-commerce Fashion Store <br />
+                Website
+              </p>
+              <div className="link">
+                <a href="/">VIEW PROJECT</a>
+              </div>
+              <div className="link">
+                <a
+                  href="https://momostores.herokuapp.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  VIEW DEMO
+                </a>
+              </div>
             </div>
-            <div className="link">
-              <a href="/" target="_blank">
-                VIEW DEMO
-              </a>
-            </div>
-          </div>
-        </ProjectA1>
+          </ProjectA1>
+        </ProjectA>
 
-        <div className="momoDetail">
+        <div className="momoDetail" ref={refImage2}>
           <ProjectA2>
             <img src={momoShop} alt="" />
           </ProjectA2>
@@ -202,7 +334,7 @@ const Projects = () => {
 
       <ProjectB1>
         <div>
-          <img src={seoulLanding} alt="" />
+          <img src={seoulLanding} alt="" ref={refImage3} />
         </div>
         <div className="description">
           <p>
@@ -214,14 +346,12 @@ const Projects = () => {
             <a href="/">VIEW PROJECT</a>
           </div>
           <div className="link">
-            <a href="/" target="_blank">
-              VIEW DEMO
-            </a>
+            <a href="/">VIEW DEMO</a>
           </div>
         </div>
       </ProjectB1>
 
-      <Title2>
+      <Title2 ref={refTitle2}>
         <div className="transparent">PROJECTS</div>
         <div>PROJECTS</div>
       </Title2>
@@ -235,7 +365,7 @@ const Projects = () => {
           </p>
         </div>
 
-        <div>
+        <div ref={refImage4}>
           <ProjectC1>
             <img src={uiA} alt="" />
           </ProjectC1>
@@ -246,23 +376,21 @@ const Projects = () => {
       </div>
 
       <ProjectD1>
-        <div>
+        <div ref={refImage5}>
           <img src={asanaLanding} alt="" />
         </div>
 
         <div className="description">
           <p>
-            SEOULITE <br />
-            Seoul wifi map <br />
+            ASANA <br />
+            Meditation music streaming service <br />
             Website
           </p>
           <div className="link">
             <a href="/">VIEW PROJECT</a>
           </div>
           <div className="link">
-            <a href="/" target="_blank">
-              VIEW DEMO
-            </a>
+            <a href="/">VIEW DEMO</a>
           </div>
         </div>
       </ProjectD1>
