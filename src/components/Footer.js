@@ -1,4 +1,4 @@
-import React from "react"
+import React, { forwardRef } from "react"
 import styled from "styled-components"
 
 const FooterContainer = styled.div`
@@ -9,13 +9,13 @@ const FooterContainer = styled.div`
   padding: 40px;
 `
 
-const Footer = () => {
+const Footer = ({ scrollToContact }, refSection) => {
   return (
-    <FooterContainer>
+    <FooterContainer ref={refSection}>
       Copyright &copy; {new Date().getFullYear()} | All rights reserved. | MINJI
       LEE
     </FooterContainer>
   )
 }
 
-export default Footer
+export default forwardRef(Footer)

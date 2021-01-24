@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect, useRef, forwardRef } from "react"
 import styled from "styled-components"
 import profile from "../../public/static/minji_dark.jpg"
 import { gsap } from "gsap"
@@ -97,10 +97,10 @@ const EduTitle = styled.div`
   padding-bottom: 3px;
 `
 
-const About = () => {
+const About = ({ scrollToAbout }, refSection) => {
   const [language, setLanguage] = useState("ko")
 
-  const refSection = useRef(null)
+  // const refSection = useRef(null)
   const refTitle = useRef(null)
   const refProfile = useRef(null)
 
@@ -115,7 +115,9 @@ const About = () => {
         scrub: true,
       },
     })
+  }, [refSection])
 
+  useEffect(() => {
     gsap.to(refProfile.current, {
       yPercent: -50,
       ease: "none",
@@ -126,7 +128,7 @@ const About = () => {
         scrub: true,
       },
     })
-  }, [])
+  }, [refSection])
 
   return (
     <Container ref={refSection}>
@@ -254,4 +256,4 @@ const About = () => {
   )
 }
 
-export default About
+export default forwardRef(About)

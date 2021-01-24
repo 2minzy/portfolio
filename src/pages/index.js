@@ -66,6 +66,10 @@ const IndexPage = () => {
   const refText3 = useRef(null)
   const refText4 = useRef(null)
 
+  const refAbout = useRef(null)
+  const refProjects = useRef(null)
+  const refContact = useRef(null)
+
   useEffect(() => {
     gsap.to(refText1.current, {
       scrollTrigger: {
@@ -109,11 +113,43 @@ const IndexPage = () => {
     })
   }, [])
 
+  const scrollToAbout = e => {
+    e.preventDefault()
+    refAbout.current.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    })
+  }
+
+  const scrollToProjects = e => {
+    e.preventDefault()
+    refProjects.current.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "start",
+    })
+  }
+
+  const scrollToContact = e => {
+    e.preventDefault()
+    refContact.current.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    })
+  }
+
   return (
     <div ref={refStart}>
       <GlobalStyle />
-      <Header />
+      <Header
+        scrollToAbout={scrollToAbout}
+        scrollToProjects={scrollToProjects}
+        scrollToContact={scrollToContact}
+      />
       <LandingVideo />
+
       <TextContainer>
         <FrontText ref={refText1}>
           HI I'M MINJI LEE FRONTEND DEVELOPER
@@ -122,10 +158,10 @@ const IndexPage = () => {
         <FrontText ref={refText3}>WHO HAS PASSION IN UI/UX DESIGN</FrontText>
         <BackText ref={refText4}>WHO HAS PASSION IN UI/UX DESIGN</BackText>
       </TextContainer>
-      <About />
-      <Projects />
+      <About scrollToAbout={scrollToAbout} ref={refAbout} />
+      <Projects scrollToProjects={scrollToProjects} ref={refProjects} />
       <Contact />
-      <Footer />
+      <Footer scrollToContact={scrollToContact} ref={refContact} />
     </div>
   )
 }

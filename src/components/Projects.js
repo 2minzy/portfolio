@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, forwardRef } from "react"
 // import { Link } from "gatsby"
 import styled from "styled-components"
 import momoLanding from "../../public/static/momoLanding.jpg"
@@ -172,8 +172,7 @@ const ProjectD1 = styled.div`
   }
 `
 
-const Projects = () => {
-  const refSection = useRef(null)
+const Projects = ({ scrollToProjects }, refSection) => {
   const refTitle = useRef(null)
   const refTitle2 = useRef(null)
   const refImage1 = useRef(null)
@@ -215,12 +214,12 @@ const Projects = () => {
         scrub: true,
       },
     })
-  }, [])
+  }, [refSection])
 
   useEffect(() => {
     let proxy = { skew: 0 },
       skewSetter = gsap.quickSetter(refImage2.current, "skewY", "deg"),
-      clamp = gsap.utils.clamp(-10, 10)
+      clamp = gsap.utils.clamp(-5, 5)
 
     ScrollTrigger.create({
       onUpdate: self => {
@@ -253,7 +252,7 @@ const Projects = () => {
         scrub: true,
       },
     })
-  }, [])
+  }, [refSection])
 
   useEffect(() => {
     gsap.to(refSeoulDesc.current, {
@@ -265,12 +264,12 @@ const Projects = () => {
         scrub: true,
       },
     })
-  })
+  }, [refSection])
 
   useEffect(() => {
     let proxy = { skew: 0 },
       skewSetter2 = gsap.quickSetter(refImage3.current, "skewY", "deg"),
-      clamp = gsap.utils.clamp(-10, 10)
+      clamp = gsap.utils.clamp(-5, 5)
 
     ScrollTrigger.create({
       onUpdate: self => {
@@ -293,7 +292,7 @@ const Projects = () => {
   useEffect(() => {
     let proxy = { skew: 0 },
       skewSetter6 = gsap.quickSetter(refImageT.current, "skewY", "deg"),
-      clamp = gsap.utils.clamp(-10, 10)
+      clamp = gsap.utils.clamp(-5, 5)
 
     ScrollTrigger.create({
       onUpdate: self => {
@@ -321,7 +320,7 @@ const Projects = () => {
   useEffect(() => {
     let proxy = { skew: 0 },
       skewSetter3 = gsap.quickSetter(refImage4.current, "skewY", "deg"),
-      clamp = gsap.utils.clamp(-10, 10)
+      clamp = gsap.utils.clamp(-5, 5)
 
     ScrollTrigger.create({
       onUpdate: self => {
@@ -351,7 +350,7 @@ const Projects = () => {
       yPercent: 10,
       ease: "none",
       scrollTrigger: {
-        trigger: refAsanaDesc.current,
+        trigger: refImage4.current,
 
         scrub: true,
       },
@@ -367,6 +366,34 @@ const Projects = () => {
 
         scrub: true,
       },
+    })
+  }, [])
+
+  useEffect(() => {
+    let proxy = { skew: 0 },
+      skewSetter4 = gsap.quickSetter(refImage5.current, "skewY", "deg"),
+      clamp = gsap.utils.clamp(-5, 5)
+
+    ScrollTrigger.create({
+      onUpdate: self => {
+        let skew = clamp(self.getVelocity() / -200)
+
+        if (Math.abs(skew) > Math.abs(proxy.skew)) {
+          proxy.skew = skew
+          gsap.to(proxy, {
+            skew: 0,
+            duration: 0.3,
+            ease: "none",
+            overwrite: true,
+            onUpdate: () => skewSetter4(proxy.skew),
+          })
+        }
+      },
+    })
+
+    gsap.set(refImage5.current, {
+      transformOrigin: "left center",
+      force3D: true,
     })
   }, [])
 
@@ -479,4 +506,4 @@ const Projects = () => {
   )
 }
 
-export default Projects
+export default forwardRef(Projects)

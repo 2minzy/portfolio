@@ -19,11 +19,6 @@ const Container = styled.div`
     padding: 8px 12px;
     margin: 0 4px;
     list-style: none;
-    cursor: pointer;
-
-    &:hover {
-      color: #2aaeba;
-    }
   }
 `
 const AboutText = styled.p`
@@ -31,7 +26,19 @@ const AboutText = styled.p`
   font-size: 1rem;
 `
 
-const header = () => {
+const SectionButton = styled.button`
+  background: none;
+  border: none;
+  outline: 0;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    color: #2aaeba;
+  }
+`
+
+const header = ({ scrollToAbout, scrollToProjects, scrollToContact }) => {
   return (
     <Container>
       <Link to="/">
@@ -47,10 +54,18 @@ const header = () => {
         with experience in UI/UX Design, Fine Arts and Computer Science.
       </AboutText>
       <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Projects</li>
-        <li>Contact</li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <SectionButton onClick={scrollToAbout}>About</SectionButton>
+        </li>
+        <li>
+          <SectionButton onClick={scrollToProjects}>Projects</SectionButton>
+        </li>
+        <li>
+          <SectionButton onClick={scrollToContact}>Contact</SectionButton>
+        </li>
       </ul>
     </Container>
   )
