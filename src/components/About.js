@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef, forwardRef } from "react"
 import styled from "styled-components"
-import profile from "../../public/static/minji_dark.jpg"
-import { gsap } from "gsap"
+import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 // register ScrollTrigger
@@ -11,32 +10,43 @@ const Container = styled.div`
   margin: 800px 200px 0 200px;
 
   .eng {
+    font-family: "Suisse Intl", sans-serif;
+    font-size: 0.9rem;
     margin-top: 2rem;
-    font-family: "Poppins", sans-serif;
-    font-size: 1.1rem;
+    line-height: 2rem;
+  }
+
+  .eng-content {
+    font-family: "Suisse Intl", sans-serif;
+    font-size: 1rem;
+    margin-top: 2rem;
     line-height: 2rem;
   }
 
   .ko {
-    margin-top: 2rem;
     font-family: "S-CoreDream-3Light", sans-serif;
     font-size: 0.9rem;
+    margin-top: 2rem;
     line-height: 2rem;
   }
 
   .eduEng {
+    font-family: "Suisse Intl", sans-serif;
     font-size: 0.9rem;
   }
 
   .eduKo {
+    font-family: "S-CoreDream-3Light", sans-serif;
     font-size: 0.8rem;
   }
 
   .eduTitleEng {
+    font-family: "Suisse Intl", sans-serif;
     font-size: 1.1rem;
   }
 
   .eduTitleKo {
+    font-family: "S-CoreDream-3Light", sans-serif;
     font-size: 1rem;
   }
 
@@ -72,11 +82,16 @@ const Container = styled.div`
     margin: 560px 16px 0 16px;
 
     .eng {
+      font-size: 0.9rem;
       margin: 1rem;
     }
 
     .ko {
       margin: 1rem;
+    }
+
+    .eduEng {
+      font-size: 0.8rem;
     }
   }
 `
@@ -212,7 +227,7 @@ const EduTitle = styled.div`
   padding-bottom: 3px;
 
   @media ${({ theme }) => theme.device.mobile} {
-    margin-top: 1rem;
+    margin-top: 2.4rem;
     padding-bottom: 1px;
   }
 `
@@ -259,13 +274,17 @@ const About = ({ scrollToAbout }, refSection) => {
 
       <AboutContent>
         <ImageContainer ref={refProfile}>
-          <img src={profile} alt=""></img>
+          <img src={"../../images/minji_dark.jpg"} alt=""></img>
         </ImageContainer>
         <TextContainer>
-          <LanguageBox onClick={() => setLanguage("eng")}>English</LanguageBox>
-          <LanguageBox onClick={() => setLanguage("ko")}>한국어</LanguageBox>
+          <LanguageBox className="eng" onClick={() => setLanguage("eng")}>
+            English
+          </LanguageBox>
+          <LanguageBox className="ko" onClick={() => setLanguage("ko")}>
+            한국어
+          </LanguageBox>
           {language === "eng" ? (
-            <div className="eng">
+            <div className="eng-content">
               I'm a Front-end developer who has diverse backgrounds such as
               <br />
               Communication Design, Fine Arts and Computer Science.

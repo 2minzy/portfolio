@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import video from "../../public/static/water.mp4"
 import RotateIcon from "../components/RotateIcon"
 
 const VideoContainer = styled.div`
@@ -58,7 +57,7 @@ const LandingVideo = () => {
   return (
     <VideoContainer>
       <RotateIcon />
-      <video src={video} autoPlay muted loop></video>
+      <video src={"../../videos/water.mp4"} autoPlay muted loop></video>
     </VideoContainer>
   )
 }

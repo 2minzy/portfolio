@@ -1,13 +1,7 @@
 import React, { useEffect, useRef, forwardRef } from "react"
 // import { Link } from "gatsby"
 import styled from "styled-components"
-import momoLanding from "../../public/static/momoLanding.jpg"
-import momoShop from "../../public/static/momoShop.jpg"
-import momoPayment from "../../public/static/momoPayment.jpg"
-import asanaLanding from "../../public/static/asanaLanding.jpg"
-import seoulLanding from "../../public/static/seoulLanding.jpg"
-import uiA from "../../public/static/uiA.jpg"
-import uiB from "../../public/static/uiB.jpg"
+
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -16,8 +10,8 @@ gsap.registerPlugin(ScrollTrigger)
 
 const Container = styled.div`
   margin-top: 400px;
-  font-family: "Poppins", sans-serif;
-  font-size: 1rem;
+  font-family: "Suisse Intl", sans-serif;
+  font-size: 0.9rem;
 
   .projectContainer {
     display: flex;
@@ -41,9 +35,9 @@ const Container = styled.div`
 
     &:hover {
       a {
-        color: black;
+        color: #000;
       }
-      background-color: white;
+      background-color: #fff;
     }
   }
 
@@ -629,7 +623,7 @@ const Projects = ({ scrollToProjects }, refSection) => {
       <div className="projectContainer">
         <ProjectA>
           <ProjectA1 ref={refImage1}>
-            <img src={momoLanding} alt="" />
+            <img src={"../../images/momoLanding.jpg"} alt="" />
             <div className="description">
               <p>
                 MOMO <br />
@@ -660,17 +654,17 @@ const Projects = ({ scrollToProjects }, refSection) => {
 
         <div className="momoDetail" ref={refImage2}>
           <ProjectA2>
-            <img src={momoShop} alt="" />
+            <img src={"../../images/momoShop.jpg"} alt="" />
           </ProjectA2>
           <ProjectA3>
-            <img src={momoPayment} alt="" />
+            <img src={"../../images/momoPayment.jpg"} alt="" />
           </ProjectA3>
         </div>
       </div>
 
       <ProjectB1>
         <div>
-          <img src={seoulLanding} alt="" ref={refImage3} />
+          <img src={"../../images/seoulLanding.jpg"} alt="" ref={refImage3} />
         </div>
         <div className="description" ref={refSeoulDesc}>
           <p>
@@ -715,17 +709,17 @@ const Projects = ({ scrollToProjects }, refSection) => {
 
         <div>
           <ProjectC1 ref={refImageT}>
-            <img src={uiA} alt="" />
+            <img src={"../../images/uiA.jpg"} alt="" />
           </ProjectC1>
           <ProjectC2 ref={refImage4}>
-            <img src={uiB} alt="" />
+            <img src={"../../images/uiB.jpg"} alt="" />
           </ProjectC2>
         </div>
       </div>
 
       <ProjectD1>
         <div ref={refImage5}>
-          <img src={asanaLanding} alt="" />
+          <img src={"../../images/asanaLanding.jpg"} alt="" />
         </div>
 
         <div className="description" ref={refAsanaDesc}>

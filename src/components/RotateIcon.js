@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 const Container = styled.div`
   position: relative;
+  font-family: "Suisse Intl", sans-serif;
   margin-left: -180px;
 
   svg {

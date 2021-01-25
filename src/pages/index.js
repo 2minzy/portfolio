@@ -16,8 +16,8 @@ gsap.registerPlugin(ScrollTrigger)
 const GlobalStyle = createGlobalStyle`
   body {
     // #0d0d0d;
-    background-color: black;
-    color: white;
+    background-color: #000;
+    color: #fff;
     height: 100%;
     box-sizing: border-box;
   }
@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
     outline: none;
-    color: white
+    color: #fff;
   }
 
   button {

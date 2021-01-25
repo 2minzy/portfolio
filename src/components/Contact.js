@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 const Container = styled.div`
-  font-family: "Poppins", sans-serif;
+  font-family: "Suisse Intl", sans-serif;
   font-size: 1rem;
   margin: 400px 200px;
   display: flex;
