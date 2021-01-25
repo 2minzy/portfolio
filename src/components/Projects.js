@@ -28,12 +28,16 @@ const Container = styled.div`
   }
 
   .link {
-    width: 150px;
+    width: 140px;
     border: 1px solid;
-    text-align: center;
     padding: 1rem;
+    text-align: center;
     margin-bottom: 1rem;
     cursor: pointer;
+
+    a {
+      padding: 1rem;
+    }
 
     &:hover {
       a {

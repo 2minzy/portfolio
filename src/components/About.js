@@ -13,7 +13,7 @@ const Container = styled.div`
   .eng {
     margin-top: 2rem;
     font-family: "Poppins", sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 2rem;
   }
 
