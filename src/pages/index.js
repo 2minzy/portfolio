@@ -168,7 +168,6 @@ const IndexPage = () => {
             HI I'M MINJI LEE FRONTEND DEVELOPER
           </FrontText>
           <BackText ref={refText2}>
-            {" "}
             HI I'M MINJI LEE FRONTEND DEVELOPER
           </BackText>
           <FrontText ref={refText3}>WHO HAS PASSION IN UI/UX DESIGN</FrontText>

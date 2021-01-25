@@ -79,7 +79,7 @@ const SectionButton = styled.button`
   }
 `
 
-const header = ({ scrollToAbout, scrollToProjects, scrollToContact }) => {
+const Header = ({ scrollToAbout, scrollToProjects, scrollToContact }) => {
   return (
     <Container>
       <Link to="/">
@@ -114,4 +114,4 @@ const header = ({ scrollToAbout, scrollToProjects, scrollToContact }) => {
   )
 }
 
-export default header
+export default Header
