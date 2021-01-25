@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react"
-import Header from "../components/Header"
+import SiteHeader from "../components/SiteHeader"
 import LandingVideo from "../components/LandingVideo"
 import About from "../components/About"
 import Projects from "../components/Projects"
@@ -155,7 +155,7 @@ const IndexPage = () => {
     <div ref={refStart}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Header
+        <SiteHeader
           scrollToAbout={scrollToAbout}
           scrollToProjects={scrollToProjects}
           scrollToContact={scrollToContact}
