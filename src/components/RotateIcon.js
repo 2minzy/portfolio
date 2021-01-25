@@ -25,6 +25,38 @@ const Container = styled.div`
       transform: rotate(-360deg);
     }
   }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    margin-left: -180px;
+
+    svg {
+      height: 160px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.tabletSm} {
+    margin-left: -220px;
+
+    svg {
+      height: 140px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    margin-left: -100px;
+
+    svg {
+      height: 100px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobileSm} {
+    margin-left: -80px;
+
+    svg {
+      height: 100px;
+    }
+  }
 `
 
 const SVGText = () => {

@@ -7,6 +7,15 @@ const Container = styled.div`
   margin: 400px 200px;
   display: flex;
   align-items: center;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    flex-direction: column;
+    margin-top: 500px;
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    margin: 400px 0 200px 0;
+  }
 `
 
 const Title = styled.div`
@@ -23,6 +32,27 @@ const Title = styled.div`
     -webkit-text-stroke: 0.02em #fff;
     color: transparent;
   }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    font-size: 5rem;
+    margin-right: 0;
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    font-size: 3rem;
+    margin-right: 2rem;
+    div {
+      line-height: 3rem;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobileSm} {
+    font-size: 2rem;
+    margin-right: 1rem;
+    div {
+      line-height: 2rem;
+    }
+  }
 `
 
 const Description = styled.div`
@@ -33,7 +63,6 @@ const Description = styled.div`
   }
 
   a {
-    margin-bottom: 2rem;
     &:hover {
       color: #2aaeba;
     }
@@ -41,6 +70,18 @@ const Description = styled.div`
 
   .link {
     margin-bottom: 2rem;
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    .DescTitle {
+      font-size: 1rem;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobileSm} {
+    .DescTitle {
+      font-size: 0.8rem;
+    }
   }
 `
 

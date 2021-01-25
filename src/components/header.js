@@ -20,10 +20,38 @@ const Container = styled.div`
     margin: 0 4px;
     list-style: none;
   }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    margin: 20px;
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    flex-direction: column;
+    margin: 20px;
+    font-size: 0.8rem;
+
+    button {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobileSm} {
+    flex-direction: column;
+    font-size: 0.7rem;
+    margin: 10px;
+
+    button {
+      font-size: 0.7rem;
+    }
+  }
 `
 const AboutText = styled.p`
   margin: 40px 80px;
   font-size: 1rem;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    display: none;
+  }
 `
 
 const SectionButton = styled.button`

@@ -16,7 +16,44 @@ const VideoContainer = styled.div`
     object-fit: cover;
   }
   z-index: 0;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    video {
+      margin-left: 150px;
+      margin-top: -50px;
+      width: 700px;
+      height: 900px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.tabletSm} {
+    video {
+      margin-left: 120px;
+      margin-top: -50px;
+      width: 500px;
+      height: 700px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    video {
+      margin-left: 55px;
+      margin-top: -80px;
+      width: 250px;
+      height: 600px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobileSm} {
+    video {
+      margin-left: 52px;
+      margin-top: -80px;
+      width: 200px;
+      height: 400px;
+    }
+  }
 `
+
 const LandingVideo = () => {
   return (
     <VideoContainer>

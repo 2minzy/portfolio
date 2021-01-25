@@ -52,6 +52,46 @@ const Container = styled.div`
       margin: 1000px 100px 0 0;
     }
   }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    .projectCContainer {
+      margin-left: 120px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.tabletSm} {
+    .projectCContainer {
+      margin-left: 40px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    font-size: 0.8rem;
+
+    .projectCContainer {
+      margin-left: 0px;
+      margin-right: 1rem;
+      flex-direction: column-reverse;
+
+      .description {
+        margin: 100px 0 0 0;
+      }
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    font-size: 0.7rem;
+
+    .projectCContainer {
+      margin-left: 0px;
+      margin-right: 1rem;
+      flex-direction: column-reverse;
+
+      .description {
+        margin: 100px 0 0 0;
+      }
+    }
+  }
 `
 
 const Title = styled.div`
@@ -73,6 +113,30 @@ const Title = styled.div`
     -webkit-text-stroke: 0.02em #fff;
     color: transparent;
   }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    margin-left: 800px;
+    font-size: 4rem;
+    div {
+      line-height: 4rem;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.tabletSm} {
+    margin-left: 600px;
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    margin-left: 260px;
+    font-size: 2rem;
+    div {
+      line-height: 2rem;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobileSm} {
+    margin-left: 220px;
+  }
 `
 
 const Title2 = styled.div`
@@ -93,12 +157,32 @@ const Title2 = styled.div`
     -webkit-text-stroke: 0.02em #fff;
     color: transparent;
   }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    margin: 500px 0 0 100px;
+    font-size: 4rem;
+    div {
+      line-height: 4rem;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.tabletSm} {
+    margin: 500px 0 0 50px;
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    display: none;
+  }
 `
 
 const ProjectA = styled.div`
   position: relative;
   display: flex;
   margin-bottom: -200px;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    margin-bottom: -100px;
+  }
 `
 
 const ProjectA1 = styled.div`
@@ -111,6 +195,28 @@ const ProjectA1 = styled.div`
   .description {
     margin: 100px;
   }
+
+  @media ${({ theme }) => theme.device.tabletSm} {
+    img {
+      width: 700px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    img {
+      width: 360px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobileSm} {
+    img {
+      width: 300px;
+    }
+
+    .description {
+      margin: 50px;
+    }
+  }
 `
 
 const ProjectA2 = styled.div`
@@ -119,11 +225,19 @@ const ProjectA2 = styled.div`
     width: 500px;
     object-fit: cover;
   }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    display: none;
+  }
 `
 const ProjectA3 = styled.div`
   img {
     width: 500px;
     object-fit: cover;
+  }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    display: none;
   }
 `
 
@@ -137,6 +251,31 @@ const ProjectB1 = styled.div`
     width: 600px;
     object-fit: cover;
   }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    flex-direction: column;
+
+    img {
+      margin-top: -200px;
+    }
+
+    .description {
+      margin-top: 300px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    margin-right: 1rem;
+    img {
+      width: 320px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobileSm} {
+    img {
+      width: 300px;
+    }
+  }
 `
 
 const ProjectC1 = styled.div`
@@ -146,6 +285,30 @@ const ProjectC1 = styled.div`
     width: 800px;
     object-fit: cover;
   }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    img {
+      width: 600px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.tabletSm} {
+    img {
+      width: 460px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    img {
+      width: 340px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    img {
+      width: 300px;
+    }
+  }
 `
 
 const ProjectC2 = styled.div`
@@ -153,6 +316,30 @@ const ProjectC2 = styled.div`
     position: relative;
     width: 800px;
     object-fit: cover;
+  }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    img {
+      width: 600px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.tabletSm} {
+    img {
+      width: 460px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    img {
+      width: 340px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    img {
+      width: 300px;
+    }
   }
 `
 
@@ -169,6 +356,37 @@ const ProjectD1 = styled.div`
 
   .description {
     margin: 150px 0 0 300px;
+  }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    flex-direction: column;
+
+    img {
+      margin-right: 1rem;
+      width: 1000px;
+    }
+
+    .description {
+      margin: 0 0 50px 0;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.tabletSm} {
+    img {
+      width: 700px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    img {
+      width: 340px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobileSm} {
+    img {
+      width: 300px;
+    }
   }
 `
 

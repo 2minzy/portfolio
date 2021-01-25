@@ -5,7 +5,8 @@ import About from "../components/About"
 import Projects from "../components/Projects"
 import Contact from "../components/Contact"
 import Footer from "../components/Footer"
-import styled, { createGlobalStyle } from "styled-components"
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components"
+import theme from "../libs/theme"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -32,30 +33,41 @@ const GlobalStyle = createGlobalStyle`
     outline: none;
     text-align: center;
   }
+
+  @media ${({ theme }) => theme.device.tablet} {
+   body {
+     width: 100%;
+   }
+  }
 `
 
 const TextContainer = styled.div`
   margin-top: 400px;
   position: relative;
   overflow-x: hidden;
+  white-space: nowrap;
+  font-family: "Monument", sans-serif;
+  font-size: 6rem;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    font-size: 4rem;
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    margin-top: 300px;
+  }
 `
 
 const FrontText = styled.div`
   position: absolute;
-  white-space: nowrap;
-  overflow: hidden;
-  font-family: "Monument", sans-serif;
+
   color: transparent;
-  font-size: 6rem;
+
   -webkit-text-stroke: 0.02em #fff;
 `
 
 const BackText = styled.div`
   position: relative;
-  white-space: nowrap;
-  overflow: hidden;
-  font-family: "Monument", sans-serif;
-  font-size: 6rem;
   z-index: -1;
 `
 
@@ -142,26 +154,31 @@ const IndexPage = () => {
 
   return (
     <div ref={refStart}>
-      <GlobalStyle />
-      <Header
-        scrollToAbout={scrollToAbout}
-        scrollToProjects={scrollToProjects}
-        scrollToContact={scrollToContact}
-      />
-      <LandingVideo />
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Header
+          scrollToAbout={scrollToAbout}
+          scrollToProjects={scrollToProjects}
+          scrollToContact={scrollToContact}
+        />
+        <LandingVideo />
 
-      <TextContainer>
-        <FrontText ref={refText1}>
-          HI I'M MINJI LEE FRONTEND DEVELOPER
-        </FrontText>
-        <BackText ref={refText2}> HI I'M MINJI LEE FRONTEND DEVELOPER</BackText>
-        <FrontText ref={refText3}>WHO HAS PASSION IN UI/UX DESIGN</FrontText>
-        <BackText ref={refText4}>WHO HAS PASSION IN UI/UX DESIGN</BackText>
-      </TextContainer>
-      <About scrollToAbout={scrollToAbout} ref={refAbout} />
-      <Projects scrollToProjects={scrollToProjects} ref={refProjects} />
-      <Contact />
-      <Footer scrollToContact={scrollToContact} ref={refContact} />
+        <TextContainer>
+          <FrontText ref={refText1}>
+            HI I'M MINJI LEE FRONTEND DEVELOPER
+          </FrontText>
+          <BackText ref={refText2}>
+            {" "}
+            HI I'M MINJI LEE FRONTEND DEVELOPER
+          </BackText>
+          <FrontText ref={refText3}>WHO HAS PASSION IN UI/UX DESIGN</FrontText>
+          <BackText ref={refText4}>WHO HAS PASSION IN UI/UX DESIGN</BackText>
+        </TextContainer>
+        <About scrollToAbout={scrollToAbout} ref={refAbout} />
+        <Projects scrollToProjects={scrollToProjects} ref={refProjects} />
+        <Contact />
+        <Footer scrollToContact={scrollToContact} ref={refContact} />
+      </ThemeProvider>
     </div>
   )
 }

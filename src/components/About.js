@@ -20,6 +20,7 @@ const Container = styled.div`
   .ko {
     margin-top: 2rem;
     font-family: "S-CoreDream-3Light", sans-serif;
+    font-size: 0.9rem;
     line-height: 2rem;
   }
 
@@ -38,6 +39,46 @@ const Container = styled.div`
   .eduTitleKo {
     font-size: 1rem;
   }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    margin: 600px 50px 0 50px;
+
+    .eng {
+      font-size: 1rem;
+    }
+
+    .ko {
+      font-size: 0.8rem;
+    }
+
+    .eduEng {
+      font-size: 0.8rem;
+    }
+
+    .eduKo {
+      font-size: 0.7rem;
+    }
+
+    .eduTitleEng {
+      font-size: 1rem;
+    }
+
+    .eduTitleKo {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    margin: 560px 16px 0 16px;
+
+    .eng {
+      margin: 1rem;
+    }
+
+    .ko {
+      margin: 1rem;
+    }
+  }
 `
 
 const Title = styled.div`
@@ -55,16 +96,53 @@ const Title = styled.div`
     -webkit-text-stroke: 0.02em #fff;
     color: transparent;
   }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    font-size: 3rem;
+    margin-bottom: 0;
+
+    div {
+      line-height: 3rem;
+    }
+  }
 `
 
 const AboutContent = styled.div`
   display: flex;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    flex-direction: column;
+  }
 `
 
 const ImageContainer = styled.div`
   img {
     width: 800px;
     margin-right: 2rem;
+  }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    img {
+      width: 600px;
+      margin-right: 0;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    img {
+      width: 330px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobileSm} {
+    img {
+      width: 280px;
+    }
   }
 `
 const TextContainer = styled.div`
@@ -76,9 +154,25 @@ const TextContainer = styled.div`
       color: #2aaeba;
     }
   }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    span {
+      margin-top: 500px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.tabletSm} {
+    span {
+      margin-top: 0;
+    }
+  }
 `
 
-const LanguageBox = styled.span``
+const LanguageBox = styled.span`
+  @media ${({ theme }) => theme.device.mobile} {
+    font-size: 0.9rem;
+  }
+`
 
 const EducationContainer = styled.div`
   .eduContainer {
@@ -88,13 +182,39 @@ const EducationContainer = styled.div`
       flex: 1;
     }
   }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    .eduContainer {
+      margin-top: 3rem;
+    }
+    .div {
+      justify-content: space-between;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.tabletSm} {
+    .div {
+      justify-content: space-around;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    .eduContainer {
+      margin-top: 1rem;
+      flex-direction: column;
+    }
+  }
 `
 
 const EduTitle = styled.div`
   display: inline-block;
-
   border-bottom: 2px solid;
   padding-bottom: 3px;
+
+  @media ${({ theme }) => theme.device.mobile} {
+    margin-top: 1rem;
+    padding-bottom: 1px;
+  }
 `
 
 const About = ({ scrollToAbout }, refSection) => {
