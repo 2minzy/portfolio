@@ -415,15 +415,21 @@ const Projects = ({ scrollToProjects }, refSection) => {
                 Website
               </p>
               <div className="link">
-                <a href="/">VIEW PROJECT</a>
-              </div>
-              <div className="link">
                 <a
                   href="https://momostores.herokuapp.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   VIEW DEMO
+                </a>
+              </div>
+              <div className="link">
+                <a
+                  href="https://velog.io/@bbio3o/MOMO-%EC%98%A8%EB%9D%BC%EC%9D%B8-%ED%8C%A8%EC%85%98-E-commerce-%EC%87%BC%ED%95%91%EB%AA%B0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  VIEW PROJECT
                 </a>
               </div>
             </div>
@@ -451,10 +457,22 @@ const Projects = ({ scrollToProjects }, refSection) => {
             Website
           </p>
           <div className="link">
-            <a href="/">VIEW PROJECT</a>
+            <a
+              href="https://seoulite.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              VIEW DEMO
+            </a>
           </div>
           <div className="link">
-            <a href="/">VIEW DEMO</a>
+            <a
+              href="https://velog.io/@bbio3o/Project-Seoulite-%EC%84%9C%EC%9A%B8%EC%8B%9C-wifi-%EC%9C%84%EC%B9%98-%EC%A7%80%EB%8F%84-%EC%95%B1-%EC%B9%B4%EC%B9%B4%EC%98%A4-%EC%A7%80%EB%8F%84-API-%EC%84%9C%EC%9A%B8-%EC%97%B4%EB%A6%B0%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B4%91%EC%9E%A5-%ED%99%9C%EC%9A%A9"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              VIEW PROJECT
+            </a>
           </div>
         </div>
       </ProjectB1>
@@ -491,14 +509,26 @@ const Projects = ({ scrollToProjects }, refSection) => {
         <div className="description" ref={refAsanaDesc}>
           <p>
             ASANA <br />
-            Meditation music streaming service <br />
+            Meditation music stream Storage Service <br />
             Website
           </p>
           <div className="link">
-            <a href="/">VIEW PROJECT</a>
+            <a
+              href="https://asana-streams.herokuapp.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              VIEW DEMO
+            </a>
           </div>
           <div className="link">
-            <a href="/">VIEW DEMO</a>
+            <a
+              href="https://velog.io/@bbio3o/Asana-%EB%AA%85%EC%83%81-%EC%9D%8C%EC%95%85-%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D-%EC%A0%80%EC%9E%A5%EC%86%8C"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              VIEW PROJECT
+            </a>
           </div>
         </div>
       </ProjectD1>
