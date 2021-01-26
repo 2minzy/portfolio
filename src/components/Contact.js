@@ -1,26 +1,10 @@
 import React from "react"
 import styled from "styled-components"
-
-const Container = styled.div`
-  font-family: "Suisse Intl", sans-serif;
-  font-size: 1rem;
-  margin: 400px 200px;
-  display: flex;
-  align-items: center;
-
-  @media ${({ theme }) => theme.device.tablet} {
-    flex-direction: column;
-    margin-top: 500px;
-  }
-
-  @media ${({ theme }) => theme.device.mobile} {
-    margin: 400px 0 200px 0;
-  }
-`
+import { Wrapper, Container, Column } from "./layout/index"
 
 const Title = styled.div`
   color: grey;
-  margin-right: 300px;
+  margin-right: 200px;
   font-size: 6rem;
   font-family: "Monument", sans-serif;
 
@@ -40,7 +24,9 @@ const Title = styled.div`
 
   @media ${({ theme }) => theme.device.mobile} {
     font-size: 3rem;
-    margin-right: 2rem;
+    text-align: center;
+    margin-right: 1rem;
+
     div {
       line-height: 3rem;
     }
@@ -48,17 +34,27 @@ const Title = styled.div`
 
   @media ${({ theme }) => theme.device.mobileSm} {
     font-size: 2rem;
-    margin-right: 1rem;
     div {
       line-height: 2rem;
     }
   }
 `
 
+const DescriptionContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-right: 1rem;
+`
+
 const Description = styled.div`
+  display: flex;
+  flex-direction: column;
   margin-top: 2rem;
 
   .DescTitle {
+    display: inline;
+
     font-size: 1.2rem;
   }
 
@@ -69,10 +65,13 @@ const Description = styled.div`
   }
 
   .link {
+    display: inline;
     margin-bottom: 2rem;
   }
 
   @media ${({ theme }) => theme.device.mobile} {
+    text-align: center;
+
     .DescTitle {
       font-size: 1rem;
     }
@@ -87,47 +86,55 @@ const Description = styled.div`
 
 const Contact = () => {
   return (
-    <Container>
-      <Title>
-        <div>CONTACT</div>
-        <div className="transparent">CONTACT</div>
-      </Title>
+    <Wrapper>
+      <Container>
+        <Column>
+          <Title>
+            <div>CONTACT</div>
+            <div className="transparent">CONTACT</div>
+          </Title>
+        </Column>
 
-      <div>
-        <Description>
-          <div className="DescTitle">EMAIL</div>
-          <div className="link">
-            <a href="mailto:minjilee0423@gmail.com">minjilee0423@gamil.com</a>
-          </div>
-        </Description>
+        <Column>
+          <DescriptionContainer>
+            <Description>
+              <div className="DescTitle">EMAIL</div>
+              <div className="link">
+                <a href="mailto:minjilee0423@gmail.com">
+                  minjilee0423@gmail.com
+                </a>
+              </div>
+            </Description>
 
-        <Description>
-          <div className="DescTitle">BLOG</div>
-          <div className="link">
-            <a
-              href="https://velog.io/@bbio3o"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              velog.io/@bbio3o
-            </a>
-          </div>
-        </Description>
+            <Description>
+              <div className="DescTitle">BLOG</div>
+              <div className="link">
+                <a
+                  href="https://velog.io/@bbio3o"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  velog.io/@bbio3o
+                </a>
+              </div>
+            </Description>
 
-        <Description>
-          <div className="DescTitle">GITHUB</div>
-          <div className="link">
-            <a
-              href="https://github.com/2minzy"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              github.com/2minzy
-            </a>
-          </div>
-        </Description>
-      </div>
-    </Container>
+            <Description>
+              <div className="DescTitle">GITHUB</div>
+              <div className="link">
+                <a
+                  href="https://github.com/2minzy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  github.com/2minzy
+                </a>
+              </div>
+            </Description>
+          </DescriptionContainer>
+        </Column>
+      </Container>
+    </Wrapper>
   )
 }
 

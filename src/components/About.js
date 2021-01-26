@@ -2,18 +2,13 @@ import React, { useState, useEffect, useRef, forwardRef } from "react"
 import styled from "styled-components"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Container, GridSize1, GridSize2 } from "./layout/index"
+import { Wrapper, Container, Column } from "./layout/index"
+import Title from "./Title"
 
 // register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger)
 
-const Wrapper = styled.div`
-  max-width: 1400px;
-  margin: auto;
-  margin-top: 80px;
-  padding: 40px;
-  /* margin: 800px 200px 0 200px; */
-
+const AboutWrapper = styled(Wrapper)`
   .eng {
     font-family: "Suisse Intl", sans-serif;
     font-size: 0.9rem;
@@ -56,8 +51,6 @@ const Wrapper = styled.div`
   }
 
   @media ${({ theme }) => theme.device.tablet} {
-    margin: 600px 50px 0 50px;
-
     .eng {
       font-size: 1rem;
     }
@@ -105,42 +98,6 @@ const Wrapper = styled.div`
   }
 `
 
-const Title = styled.div`
-  color: grey;
-  margin-bottom: 2rem;
-  font-size: 6rem;
-  font-family: "Monument", sans-serif;
-  z-index: 1;
-
-  div {
-    line-height: 5rem;
-  }
-
-  .transparent {
-    -webkit-text-stroke: 0.02em #fff;
-    color: transparent;
-  }
-
-  @media ${({ theme }) => theme.device.tablet} {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-  }
-
-  @media ${({ theme }) => theme.device.mobile} {
-    font-size: 3rem;
-    margin-bottom: 0;
-
-    div {
-      line-height: 3rem;
-    }
-  }
-`
-const ImageContainer = styled.div`
-  img {
-    width: 100%;
-    height: auto;
-  }
-`
 const TextContainer = styled.div`
   span {
     margin: 0 1rem 2rem 0;
@@ -151,11 +108,11 @@ const TextContainer = styled.div`
     }
   }
 
-  @media ${({ theme }) => theme.device.tablet} {
+  /* @media ${({ theme }) => theme.device.tablet} {
     span {
       margin-top: 500px;
     }
-  }
+  } */
 
   @media ${({ theme }) => theme.device.tabletSm} {
     span {
@@ -210,19 +167,16 @@ const About = ({ scrollToAbout }, refSection) => {
   }, [refSection])
 
   return (
-    <Wrapper ref={refSection}>
-      <Title ref={refTitle}>
-        <div>ABOUT ME</div>
-        <div className="transparent">ABOUT ME</div>
-      </Title>
+    <AboutWrapper ref={refSection}>
+      <Title text="About Me" ref={refTitle} />
 
       <Container column="column">
-        <GridSize2>
-          <ImageContainer ref={refProfile}>
+        <Column size="2">
+          <div ref={refProfile}>
             <img src={"../../images/minji_dark.jpg"} alt=""></img>
-          </ImageContainer>
-        </GridSize2>
-        <GridSize1>
+          </div>
+        </Column>
+        <Column>
           <TextContainer>
             <LanguageBox className="eng" onClick={() => setLanguage("eng")}>
               English
@@ -263,12 +217,12 @@ const About = ({ scrollToAbout }, refSection) => {
               </div>
             )}
           </TextContainer>
-        </GridSize1>
+        </Column>
       </Container>
 
       {language === "eng" ? (
         <Container column="column">
-          <GridSize1>
+          <Column>
             <EduTitle className="eduTitleEng">Education</EduTitle>
             <div className="eng eduEng">
               <div>Fine Arts - Sunhwa Arts High School</div>
@@ -289,9 +243,9 @@ const About = ({ scrollToAbout }, refSection) => {
                 University of Science and Technology
               </div>
             </div>
-          </GridSize1>
+          </Column>
 
-          <GridSize1>
+          <Column>
             <EduTitle className="eduTitleEng">Volunteer Experience</EduTitle>
             <div className="eng eduEng">
               2019-2020 Buddy Program - International Student Club of Seoul
@@ -303,11 +257,11 @@ const About = ({ scrollToAbout }, refSection) => {
               2020 Exellence Awards, start-up contest by green campus town in
               Nowon{" "}
             </div>
-          </GridSize1>
+          </Column>
         </Container>
       ) : (
         <Container column="column">
-          <GridSize1>
+          <Column>
             <EduTitle className="eduTitleKo">교육</EduTitle>
             <div className="ko eduKo">
               <div>서양화과 - 선화예술고등학교</div>
@@ -322,8 +276,8 @@ const About = ({ scrollToAbout }, refSection) => {
               <div>조형예술학과 학사 - 서울과학기술대학교</div>
               <div>컴퓨터공학 부전공 - 서울과학기술대학교</div>
             </div>
-          </GridSize1>
-          <GridSize1>
+          </Column>
+          <Column>
             <EduTitle className="eduTitleKo">봉사활동 경험</EduTitle>
             <div className="ko eduKo">
               2019-2020 외국인 유학생, 교환학생 버디 프로그램 -
@@ -334,10 +288,10 @@ const About = ({ scrollToAbout }, refSection) => {
             <div className="ko eduKo">
               2020 우수상, 노원 그린캠퍼스타운 스타트업 창업 콘테스트
             </div>
-          </GridSize1>
+          </Column>
         </Container>
       )}
-    </Wrapper>
+    </AboutWrapper>
   )
 }
 

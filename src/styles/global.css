@@ -20,6 +20,28 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+}
+
+/* button {
+  border: none;
+  outline: none;
+  text-align: center;
+} */
+
 img {
   width: 100%;
   height: auto;

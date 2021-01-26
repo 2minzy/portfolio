@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { GridSize1, GridSize2 } from "./layout/index"
+import { Column } from "./layout/index"
 
 const Container = styled.div`
   width: 100%;
@@ -91,14 +91,14 @@ const SectionButton = styled.button`
 const SiteHeader = ({ scrollToAbout, scrollToProjects, scrollToContact }) => {
   return (
     <Container>
-      <GridSize1>
+      <Column size="1">
         <Link to="/">
           MINJI LEE
           <br />
           Frontend Developer
         </Link>
-      </GridSize1>
-      <GridSize2>
+      </Column>
+      <Column size="2">
         <AboutText>
           Hi! I'm Minji Lee, based in Seoul
           <br />
@@ -106,8 +106,8 @@ const SiteHeader = ({ scrollToAbout, scrollToProjects, scrollToContact }) => {
           <br />
           with experience in UI/UX Design, Fine Arts and Computer Science.
         </AboutText>
-      </GridSize2>
-      <GridSize1>
+      </Column>
+      <Column size="1">
         <Menu>
           <li>
             <SectionButton>
@@ -124,7 +124,7 @@ const SiteHeader = ({ scrollToAbout, scrollToProjects, scrollToContact }) => {
             <SectionButton onClick={scrollToContact}>CONTACT</SectionButton>
           </li>
         </Menu>
-      </GridSize1>
+      </Column>
     </Container>
   )
 }
