@@ -37,7 +37,7 @@ const VideoContainer = styled.div`
     video {
       margin-left: 55px;
       margin-top: -80px;
-      width: 250px;
+      width: 400px;
       height: 600px;
     }
   }
@@ -46,7 +46,7 @@ const VideoContainer = styled.div`
     video {
       margin-left: 52px;
       margin-top: -80px;
-      width: 200px;
+      width: 300px;
       height: 400px;
     }
   }

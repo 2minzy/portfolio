@@ -43,6 +43,7 @@ const GlobalStyle = createGlobalStyle`
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
+  overflow-x: hidden;
 `
 
 const TextSection = styled.div`
