@@ -2,9 +2,12 @@ import React from "react"
 import styled from "styled-components"
 
 const Container = styled.div`
-  position: relative;
+  position: absolute;
+  width: 160px;
+  top: 0;
+  left: 0;
+  transform: translate(-40px, -40px);
   font-family: "Suisse Intl", sans-serif;
-  margin-left: -180px;
 
   svg {
     width: 100%;

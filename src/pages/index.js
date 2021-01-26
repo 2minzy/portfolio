@@ -40,34 +40,46 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const TextContainer = styled.div`
-  margin-top: 400px;
+const Wrapper = styled.div`
   position: relative;
-  overflow-x: hidden;
+  width: 100%;
+`
+
+const TextSection = styled.div`
+  position: relative;
+  margin-top: 80px;
+  margin-bottom: 400px;
+`
+
+const BackContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  transform: translateY(-50%);
   white-space: nowrap;
-  font-family: "Monument", sans-serif;
-  font-size: 6rem;
-
-  @media ${({ theme }) => theme.device.tablet} {
-    font-size: 4rem;
-  }
-
-  @media ${({ theme }) => theme.device.mobile} {
-    margin-top: 300px;
-  }
+  font-size: 6vw;
+`
+const FrontContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  font-size: 6vw;
 `
 
 const FrontText = styled.div`
-  position: absolute;
-
   color: transparent;
-
   -webkit-text-stroke: 0.02em #fff;
+  font-family: "Monument", sans-serif;
 `
 
 const BackText = styled.div`
-  position: relative;
-  z-index: -1;
+  font-family: "Monument", sans-serif;
 `
 
 const IndexPage = () => {
@@ -152,7 +164,7 @@ const IndexPage = () => {
   }
 
   return (
-    <div ref={refStart}>
+    <Wrapper ref={refStart}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <SiteHeader
@@ -160,24 +172,32 @@ const IndexPage = () => {
           scrollToProjects={scrollToProjects}
           scrollToContact={scrollToContact}
         />
-        <LandingVideo />
+        <TextSection>
+          <BackContainer>
+            <BackText ref={refText2}>
+              HI I'M MINJI LEE FRONTEND DEVELOPER
+            </BackText>
+            <BackText ref={refText4}>WHO HAS PASSION IN UI/UX DESIGN</BackText>
+          </BackContainer>
+          <LandingVideo />
 
-        <TextContainer>
-          <FrontText ref={refText1}>
-            HI I'M MINJI LEE FRONTEND DEVELOPER
-          </FrontText>
-          <BackText ref={refText2}>
-            HI I'M MINJI LEE FRONTEND DEVELOPER
-          </BackText>
-          <FrontText ref={refText3}>WHO HAS PASSION IN UI/UX DESIGN</FrontText>
-          <BackText ref={refText4}>WHO HAS PASSION IN UI/UX DESIGN</BackText>
-        </TextContainer>
+          <FrontContainer>
+            <FrontText ref={refText1}>
+              HI I'M MINJI LEE FRONTEND DEVELOPER
+            </FrontText>
+
+            <FrontText ref={refText3}>
+              WHO HAS PASSION IN UI/UX DESIGN
+            </FrontText>
+          </FrontContainer>
+        </TextSection>
+
         <About scrollToAbout={scrollToAbout} ref={refAbout} />
         <Projects scrollToProjects={scrollToProjects} ref={refProjects} />
         <Contact />
         <Footer scrollToContact={scrollToContact} ref={refContact} />
       </ThemeProvider>
-    </div>
+    </Wrapper>
   )
 }
 

@@ -8,6 +8,7 @@ const FooterContainer = styled.div`
   text-align: center;
   padding: 40px;
   margin-right: 1rem;
+  margin-bottom: 2rem;
 
   @media ${({ theme }) => theme.device.tablet} {
     font-size: 0.8rem;

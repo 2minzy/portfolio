@@ -4,25 +4,26 @@ import styled from "styled-components"
 
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { Container, GridSize1, GridSize2, GridSize3 } from "./layout/index"
 
 // register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger)
 
-const Container = styled.div`
+const Wrapper = styled.div`
+  max-width: 1400px;
+  margin: 0 auto;
   margin-top: 400px;
+  padding: 40px;
   font-family: "Suisse Intl", sans-serif;
   font-size: 0.9rem;
-
-  .projectContainer {
-    display: flex;
-  }
+  position: relative;
 
   .momoDetail {
     margin-left: 2rem;
   }
 
   .link {
-    width: 140px;
+    max-width: 200px;
     border: 1px solid;
     padding: 1rem;
     text-align: center;
@@ -40,64 +41,14 @@ const Container = styled.div`
       background-color: #fff;
     }
   }
-
-  .projectCContainer {
-    margin-left: 600px;
-    display: flex;
-    align-items: center;
-
-    .description {
-      margin: 1000px 100px 0 0;
-    }
-  }
-
-  @media ${({ theme }) => theme.device.tablet} {
-    .projectCContainer {
-      margin-left: 120px;
-    }
-  }
-
-  @media ${({ theme }) => theme.device.tabletSm} {
-    .projectCContainer {
-      margin-left: 40px;
-    }
-  }
-
-  @media ${({ theme }) => theme.device.mobile} {
-    font-size: 0.8rem;
-
-    .projectCContainer {
-      margin-left: 0px;
-      margin-right: 1rem;
-      flex-direction: column-reverse;
-
-      .description {
-        margin: 100px 0 0 0;
-      }
-    }
-  }
-
-  @media ${({ theme }) => theme.device.mobile} {
-    font-size: 0.7rem;
-
-    .projectCContainer {
-      margin-left: 0px;
-      margin-right: 1rem;
-      flex-direction: column-reverse;
-
-      .description {
-        margin: 100px 0 0 0;
-      }
-    }
-  }
 `
 
 const Title = styled.div`
   color: grey;
   position: absolute;
   z-index: 1;
-  margin-left: 1500px;
-  font-size: 6rem;
+  right: 0;
+  font-size: 6vw;
   font-family: "Monument", sans-serif;
   writing-mode: vertical-lr;
   -webkit-writing-mode: vertical-lr;
@@ -113,15 +64,12 @@ const Title = styled.div`
   }
 
   @media ${({ theme }) => theme.device.tablet} {
-    margin-left: 800px;
     font-size: 4rem;
-    div {
-      line-height: 4rem;
-    }
-  }
+    margin-right: 3rem;
 
-  @media ${({ theme }) => theme.device.tabletSm} {
-    margin-left: 600px;
+    div {
+      line-height: 3rem;
+    }
   }
 
   @media ${({ theme }) => theme.device.mobile} {
@@ -139,9 +87,9 @@ const Title = styled.div`
 
 const Title2 = styled.div`
   position: absolute;
-  margin: 1000px 0 0 200px;
+  left: 0;
   color: grey;
-  font-size: 6rem;
+  font-size: 6vw;
   font-family: "Monument", sans-serif;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
@@ -157,15 +105,7 @@ const Title2 = styled.div`
   }
 
   @media ${({ theme }) => theme.device.tablet} {
-    margin: 500px 0 0 100px;
-    font-size: 4rem;
-    div {
-      line-height: 4rem;
-    }
-  }
-
-  @media ${({ theme }) => theme.device.tabletSm} {
-    margin: 500px 0 0 50px;
+    display: none;
   }
 
   @media ${({ theme }) => theme.device.mobile} {
@@ -173,218 +113,26 @@ const Title2 = styled.div`
   }
 `
 
-const ProjectA = styled.div`
-  position: relative;
-  display: flex;
-  margin-bottom: -200px;
-
-  @media ${({ theme }) => theme.device.tablet} {
-    margin-bottom: -100px;
-  }
-`
-
-const ProjectA1 = styled.div`
-  img {
-    margin-top: 200px;
-    width: 1000px;
-    object-fit: cover;
-  }
-
-  .description {
-    margin: 100px;
-  }
-
-  @media ${({ theme }) => theme.device.tabletSm} {
-    img {
-      width: 700px;
-    }
-  }
+const ImageContainer = styled.div`
+  max-width: 70%;
+  margin: auto;
 
   @media ${({ theme }) => theme.device.mobile} {
-    img {
-      width: 360px;
-    }
-  }
-
-  @media ${({ theme }) => theme.device.mobileSm} {
-    img {
-      width: 300px;
-    }
-
-    .description {
-      margin: 50px;
-    }
+    max-width: 100%;
   }
 `
 
-const ProjectA2 = styled.div`
-  margin-top: 300px;
-  img {
-    width: 500px;
-    object-fit: cover;
-  }
-
-  @media ${({ theme }) => theme.device.tablet} {
-    display: none;
-  }
-`
-const ProjectA3 = styled.div`
-  img {
-    width: 500px;
-    object-fit: cover;
-  }
-
-  @media ${({ theme }) => theme.device.tablet} {
+const MobileRemove = styled.div`
+  @media ${({ theme }) => theme.device.mobile} {
     display: none;
   }
 `
 
-const ProjectB1 = styled.div`
-  display: flex;
-  align-items: center;
-
-  img {
-    margin: 0 300px;
-    position: relative;
-    width: 600px;
-    object-fit: cover;
-  }
-
-  @media ${({ theme }) => theme.device.tablet} {
-    flex-direction: column;
-
-    img {
-      margin-top: -200px;
-    }
-
-    .description {
-      margin-top: 300px;
-    }
-  }
+const Description = styled.div`
+  margin-top: 200px;
 
   @media ${({ theme }) => theme.device.mobile} {
-    margin-right: 1rem;
-    img {
-      width: 320px;
-    }
-  }
-
-  @media ${({ theme }) => theme.device.mobileSm} {
-    img {
-      width: 300px;
-    }
-  }
-`
-
-const ProjectC1 = styled.div`
-  img {
-    margin-top: 200px;
-    position: relative;
-    width: 800px;
-    object-fit: cover;
-  }
-
-  @media ${({ theme }) => theme.device.tablet} {
-    img {
-      width: 600px;
-    }
-  }
-
-  @media ${({ theme }) => theme.device.tabletSm} {
-    img {
-      width: 460px;
-    }
-  }
-
-  @media ${({ theme }) => theme.device.mobile} {
-    img {
-      width: 340px;
-    }
-  }
-
-  @media ${({ theme }) => theme.device.mobile} {
-    img {
-      width: 300px;
-    }
-  }
-`
-
-const ProjectC2 = styled.div`
-  img {
-    position: relative;
-    width: 800px;
-    object-fit: cover;
-  }
-
-  @media ${({ theme }) => theme.device.tablet} {
-    img {
-      width: 600px;
-    }
-  }
-
-  @media ${({ theme }) => theme.device.tabletSm} {
-    img {
-      width: 460px;
-    }
-  }
-
-  @media ${({ theme }) => theme.device.mobile} {
-    img {
-      width: 340px;
-    }
-  }
-
-  @media ${({ theme }) => theme.device.mobile} {
-    img {
-      width: 300px;
-    }
-  }
-`
-
-const ProjectD1 = styled.div`
-  margin-top: 400px;
-  display: flex;
-  align-items: center;
-
-  img {
-    position: relative;
-    width: 1000px;
-    object-fit: cover;
-  }
-
-  .description {
-    margin: 150px 0 0 300px;
-  }
-
-  @media ${({ theme }) => theme.device.tablet} {
-    flex-direction: column;
-
-    img {
-      margin-right: 1rem;
-      width: 1000px;
-    }
-
-    .description {
-      margin: 0 0 50px 0;
-    }
-  }
-
-  @media ${({ theme }) => theme.device.tabletSm} {
-    img {
-      width: 700px;
-    }
-  }
-
-  @media ${({ theme }) => theme.device.mobile} {
-    img {
-      width: 340px;
-    }
-  }
-
-  @media ${({ theme }) => theme.device.mobileSm} {
-    img {
-      width: 300px;
-    }
+    margin-top: 0;
   }
 `
 
@@ -614,59 +362,56 @@ const Projects = ({ scrollToProjects }, refSection) => {
   }, [])
 
   return (
-    <Container ref={refSection}>
+    <Wrapper ref={refSection}>
       <Title ref={refTitle}>
         <div>PROJECTS</div>
         <div className="transparent">PROJECTS</div>
       </Title>
 
-      <div className="projectContainer">
-        <ProjectA>
-          <ProjectA1 ref={refImage1}>
-            <img src={"../../images/momoLanding.jpg"} alt="" />
-            <div className="description">
-              <p>
-                MOMO <br />
-                E-commerce Fashion Store <br />
-                Website
-              </p>
-              <div className="link">
-                <a
-                  href="https://momostores.herokuapp.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  VIEW DEMO
-                </a>
-              </div>
-              <div className="link">
-                <a
-                  href="https://velog.io/@bbio3o/MOMO-%EC%98%A8%EB%9D%BC%EC%9D%B8-%ED%8C%A8%EC%85%98-E-commerce-%EC%87%BC%ED%95%91%EB%AA%B0"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  VIEW PROJECT
-                </a>
-              </div>
+      <Container marginBottom="80px">
+        <GridSize3>
+          <img src={"../../images/momoLanding.jpg"} alt="" />
+          <div className="description">
+            <p>
+              MOMO <br />
+              E-commerce Fashion Store <br />
+              Website
+            </p>
+            <div className="link">
+              <a
+                href="https://momostores.herokuapp.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                VIEW DEMO
+              </a>
             </div>
-          </ProjectA1>
-        </ProjectA>
+            <div className="link">
+              <a
+                href="https://velog.io/@bbio3o/MOMO-%EC%98%A8%EB%9D%BC%EC%9D%B8-%ED%8C%A8%EC%85%98-E-commerce-%EC%87%BC%ED%95%91%EB%AA%B0"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                VIEW PROJECT
+              </a>
+            </div>
+          </div>
+        </GridSize3>
+        <GridSize1 marginTop="300px">
+          <MobileRemove>
+            <img src={"../../images/momoShop.jpg"} alt="" ref={refImage1} />
+            <img src={"../../images/momoPayment.jpg"} alt="" ref={refImage2} />
+          </MobileRemove>
+        </GridSize1>
+      </Container>
 
-        <div className="momoDetail" ref={refImage2}>
-          <ProjectA2>
-            <img src={"../../images/momoShop.jpg"} alt="" />
-          </ProjectA2>
-          <ProjectA3>
-            <img src={"../../images/momoPayment.jpg"} alt="" />
-          </ProjectA3>
-        </div>
-      </div>
-
-      <ProjectB1>
-        <div>
-          <img src={"../../images/seoulLanding.jpg"} alt="" ref={refImage3} />
-        </div>
-        <div className="description" ref={refSeoulDesc}>
+      <Container marginBottom="200px" marginTop="200px" column="column">
+        <GridSize2 marginBottom="300px">
+          <ImageContainer>
+            <img src={"../../images/seoulLanding.jpg"} alt="" ref={refImage3} />
+          </ImageContainer>
+        </GridSize2>
+        <GridSize1>
           <p>
             SEOULITE <br />
             Seoul wifi map <br />
@@ -690,39 +435,35 @@ const Projects = ({ scrollToProjects }, refSection) => {
               VIEW PROJECT
             </a>
           </div>
-        </div>
-      </ProjectB1>
+        </GridSize1>
+      </Container>
 
-      <Title2 ref={refTitle2}>
-        <div className="transparent">PROJECTS</div>
-        <div>PROJECTS</div>
-      </Title2>
+      <Container marginBottom="80px" column="column">
+        <Title2 ref={refTitle2}>
+          <div className="transparent">PROJECTS</div>
+          <div>PROJECTS</div>
+        </Title2>
 
-      <div className="projectCContainer">
-        <div className="description">
-          <p>
-            BUNGBUNG <br />
-            Kids Mobility Service <br />
-            Mobile UI/UX
-          </p>
-        </div>
+        <GridSize1 marginTop="200px">
+          <Description>
+            <p>
+              BUNGBUNG <br />
+              Kids Mobility Service <br />
+              Mobile UI/UX
+            </p>
+          </Description>
+        </GridSize1>
+        <GridSize2>
+          <img src={"../../images/uiA.jpg"} alt="" ref={refImageT} />
+          <img src={"../../images/uiB.jpg"} alt="" ref={refImage4} />
+        </GridSize2>
+      </Container>
 
-        <div>
-          <ProjectC1 ref={refImageT}>
-            <img src={"../../images/uiA.jpg"} alt="" />
-          </ProjectC1>
-          <ProjectC2 ref={refImage4}>
-            <img src={"../../images/uiB.jpg"} alt="" />
-          </ProjectC2>
-        </div>
-      </div>
-
-      <ProjectD1>
-        <div ref={refImage5}>
-          <img src={"../../images/asanaLanding.jpg"} alt="" />
-        </div>
-
-        <div className="description" ref={refAsanaDesc}>
+      <Container marginTop="300px" column="column">
+        <GridSize2>
+          <img src={"../../images/asanaLanding.jpg"} alt="" ref={refImage5} />
+        </GridSize2>
+        <GridSize1 ref={refAsanaDesc}>
           <p>
             ASANA <br />
             Meditation music stream Storage Service <br />
@@ -746,9 +487,9 @@ const Projects = ({ scrollToProjects }, refSection) => {
               VIEW PROJECT
             </a>
           </div>
-        </div>
-      </ProjectD1>
-    </Container>
+        </GridSize1>
+      </Container>
+    </Wrapper>
   )
 }
 
