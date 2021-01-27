@@ -1,44 +1,45 @@
 import React from "react"
 import styled from "styled-components"
-import { Wrapper, Container, Column } from "./layout/index"
+import { Wrapper, Container, Column } from "../layout/index"
+import Title from "../Title"
 
-const Title = styled.div`
-  color: grey;
-  margin-right: 200px;
-  font-size: 6rem;
-  font-family: "Monument", sans-serif;
+// const Title = styled.div`
+//   color: grey;
+//   margin-right: 200px;
+//   font-size: 6rem;
+//   font-family: "Monument", sans-serif;
 
-  div {
-    line-height: 5rem;
-  }
+//   div {
+//     line-height: 5rem;
+//   }
 
-  .transparent {
-    -webkit-text-stroke: 0.02em #fff;
-    color: transparent;
-  }
+//   .transparent {
+//     -webkit-text-stroke: 0.02em #fff;
+//     color: transparent;
+//   }
 
-  @media ${({ theme }) => theme.device.tablet} {
-    font-size: 5rem;
-    margin-right: 0;
-  }
+//   @media ${({ theme }) => theme.device.tablet} {
+//     font-size: 5rem;
+//     margin-right: 0;
+//   }
 
-  @media ${({ theme }) => theme.device.mobile} {
-    font-size: 3rem;
-    text-align: center;
-    margin-right: 1rem;
+//   @media ${({ theme }) => theme.device.mobile} {
+//     font-size: 3rem;
+//     text-align: center;
+//     margin-right: 1rem;
 
-    div {
-      line-height: 3rem;
-    }
-  }
+//     div {
+//       line-height: 3rem;
+//     }
+//   }
 
-  @media ${({ theme }) => theme.device.mobileSm} {
-    font-size: 2rem;
-    div {
-      line-height: 2rem;
-    }
-  }
-`
+//   @media ${({ theme }) => theme.device.mobileSm} {
+//     font-size: 2rem;
+//     div {
+//       line-height: 2rem;
+//     }
+//   }
+// `
 
 const DescriptionContainer = styled.div`
   display: flex;
@@ -89,10 +90,7 @@ const Contact = () => {
     <Wrapper>
       <Container>
         <Column>
-          <Title>
-            <div>CONTACT</div>
-            <div className="transparent">CONTACT</div>
-          </Title>
+          <Title text="Contact" />
         </Column>
 
         <Column>

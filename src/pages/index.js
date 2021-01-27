@@ -1,10 +1,10 @@
 import React, { useRef } from "react"
-import SiteHeader from "../components/SiteHeader"
-import Splash from "../components/Splash"
-import About from "../components/About"
-import Projects from "../components/Projects"
-import Contact from "../components/Contact"
-import Footer from "../components/Footer"
+import Header from "../components/sections/Header"
+import Splash from "../components/sections/Splash"
+import About from "../components/sections/About"
+import Projects from "../components/sections/Projects"
+import Contact from "../components/sections/Contact"
+import Footer from "../components/sections/Footer"
 import styled, { ThemeProvider } from "styled-components"
 import theme from "../libs/theme"
 
@@ -48,7 +48,7 @@ const IndexPage = () => {
   return (
     <MainWrapper>
       <ThemeProvider theme={theme}>
-        <SiteHeader
+        <Header
           scrollToAbout={scrollToAbout}
           scrollToProjects={scrollToProjects}
           scrollToContact={scrollToContact}

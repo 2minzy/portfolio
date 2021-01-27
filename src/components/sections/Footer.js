@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react"
 import styled from "styled-components"
 
-const FooterContainer = styled.div`
+const FooterContainer = styled.footer`
   font-family: "Suisse Intl", sans-serif;
   font-size: 0.9rem;
   height: 80px;

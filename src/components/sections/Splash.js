@@ -1,13 +1,14 @@
 import React, { useRef, useEffect } from "react"
-import LandingVideo from "./LandingVideo"
+import LandingVideo from "../LandingVideo"
 import styled from "styled-components"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { Wrapper } from "../layout/index"
 
 // register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger)
 
-const TextSection = styled.div`
+const SplashWrapper = styled(Wrapper)`
   position: relative;
 `
 
@@ -38,7 +39,7 @@ const Splash = () => {
   const refText3 = useRef(null)
   const refText4 = useRef(null)
 
-  useEffect(() => {
+  /*useEffect(() => {
     const config = {
       scrollTrigger: {
         trigger: refStart.current,
@@ -60,10 +61,10 @@ const Splash = () => {
       ...config,
       x: -1000,
     })
-  }, [])
+  }, [])*/
 
   return (
-    <TextSection ref={refStart}>
+    <SplashWrapper maxWidth="auto" ref={refStart}>
       <TextContainer>
         <BackText ref={refText2}>HI I'M MINJI LEE FRONTEND DEVELOPER</BackText>
         <BackText ref={refText4}>WHO HAS PASSION IN UI/UX DESIGN</BackText>
@@ -77,7 +78,7 @@ const Splash = () => {
         </FrontText>
         <FrontText ref={refText3}>WHO HAS PASSION IN UI/UX DESIGN</FrontText>
       </TextContainer>
-    </TextSection>
+    </SplashWrapper>
   )
 }
 

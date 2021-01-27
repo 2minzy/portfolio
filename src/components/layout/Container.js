@@ -1,9 +1,38 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 const Container = styled.div`
   display: flex;
+  flex-direction: ${({ direction }) => direction ?? "row"};
 
-  /* @media ${({ theme }) => theme.device.tablet} {
+  ${({ direction }) =>
+    direction ??
+    css`
+      // Gutters
+      div {
+        margin-right: 1rem;
+        margin-left: 1rem;
+      }
+      div:not(:last-child) {
+        margin-right: 1rem;
+        margin-left: 0;
+      }
+      div:not(:first-child) {
+        margin-right: 0;
+        margin-left: 1rem;
+      }
+    `}
+
+  @media ${({ theme }) => theme.device.tablet} {
+    flex-direction: column;
+
+    // Remove gutters on mobile
+    div {
+      margin: 0;
+    }
+  }
+`
+
+/* @media ${({ theme }) => theme.device.tablet} {
     padding: 20px;
   }
 
@@ -18,14 +47,11 @@ const Container = styled.div`
     padding: 16px;
   } */
 
-  /* margin-top: ${({ marginTop }) => marginTop ?? 0};
+/* margin-top: ${({ marginTop }) => marginTop ?? 0};
   margin-bottom: ${({ marginBottom }) => marginBottom ?? 0};
   align-items: ${({ alignItems }) => alignItems ?? 0}; */
-  div:not(:last-child) {
-    margin-right: 2rem;
-  }
 
-  /* @media ${({ theme }) => theme.device.tablet} {
+/* @media ${({ theme }) => theme.device.tablet} {
     font-size: 0.9rem;
 
     a,
@@ -47,6 +73,5 @@ const Container = styled.div`
       margin-right: 0;
     }
   } */
-`
 
 export default Container
