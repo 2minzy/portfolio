@@ -21,6 +21,10 @@ const TextContainer = styled.div`
   transform: translateY(-50%);
   white-space: nowrap;
   font-size: 6vw;
+
+  @media ${({ theme }) => theme.device.mobile} {
+    font-size: 10vw;
+  }
 `
 
 const BackText = styled.div`
@@ -33,16 +37,16 @@ const FrontText = styled(BackText)`
 `
 
 const Splash = () => {
-  const refStart = useRef(null)
-  const refText1 = useRef(null)
-  const refText2 = useRef(null)
-  const refText3 = useRef(null)
-  const refText4 = useRef(null)
+  const startTrigger = useRef(null)
+  const backText1 = useRef(null)
+  const backText2 = useRef(null)
+  const frontText1 = useRef(null)
+  const frontText2 = useRef(null)
 
-  /*useEffect(() => {
+  useEffect(() => {
     const config = {
       scrollTrigger: {
-        trigger: refStart.current,
+        trigger: startTrigger.current,
         start: "top top",
         toggleActions: "play play play play",
         scrub: 1,
@@ -51,32 +55,32 @@ const Splash = () => {
       duration: 1,
     }
 
-    gsap.to(refText1.current, config)
-    gsap.to(refText2.current, config)
-    gsap.to(refText3.current, {
+    gsap.to(backText1.current, config)
+    gsap.to(frontText1.current, config)
+    gsap.to(backText2.current, {
       ...config,
       x: -1000,
     })
-    gsap.to(refText4.current, {
+    gsap.to(frontText2.current, {
       ...config,
       x: -1000,
     })
-  }, [])*/
+  }, [])
 
   return (
-    <SplashWrapper maxWidth="auto" ref={refStart}>
+    <SplashWrapper maxWidth="auto" ref={startTrigger}>
       <TextContainer>
-        <BackText ref={refText2}>HI I'M MINJI LEE FRONTEND DEVELOPER</BackText>
-        <BackText ref={refText4}>WHO HAS PASSION IN UI/UX DESIGN</BackText>
+        <BackText ref={backText1}>HI I'M MINJI LEE FRONTEND DEVELOPER</BackText>
+        <BackText ref={backText2}>WHO HAS PASSION IN UI/UX DESIGN</BackText>
       </TextContainer>
 
       <LandingVideo />
 
       <TextContainer>
-        <FrontText ref={refText1}>
+        <FrontText ref={frontText1}>
           HI I'M MINJI LEE FRONTEND DEVELOPER
         </FrontText>
-        <FrontText ref={refText3}>WHO HAS PASSION IN UI/UX DESIGN</FrontText>
+        <FrontText ref={frontText2}>WHO HAS PASSION IN UI/UX DESIGN</FrontText>
       </TextContainer>
     </SplashWrapper>
   )

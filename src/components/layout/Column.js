@@ -10,6 +10,8 @@ const Column = styled.div`
   }
 
   @media ${({ theme }) => theme.device.mobile} {
+    flex-grow: 1;
+    width: 100%;
     display: ${({ hidden }) => (hidden?.mobile ? "none" : "initial")};
   }
 `

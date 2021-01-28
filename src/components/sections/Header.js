@@ -12,7 +12,7 @@ const Logo = () => (
 
 const Header = ({ scrollToAbout, scrollToProjects, scrollToContact }) => {
   return (
-    <Wrapper maxWidth="auto" marginBottom="8rem">
+    <Wrapper maxWidth="auto" marginBottom="2rem">
       <Container>
         <Column size="1">
           <Logo />

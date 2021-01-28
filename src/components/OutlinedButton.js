@@ -2,7 +2,8 @@ import styled from "styled-components"
 
 const OutlinedButton = styled.a`
   display: inline-block;
-  max-width: 200px;
+  max-width: 300px;
+  min-width: 200px;
   border: 1px solid;
   padding: 1.6rem;
   text-align: center;
@@ -13,6 +14,12 @@ const OutlinedButton = styled.a`
   &:hover {
     color: #000;
     background-color: #fff;
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    width: 100%;
+    max-width: inherit;
+    min-width: auto;
   }
 `
 

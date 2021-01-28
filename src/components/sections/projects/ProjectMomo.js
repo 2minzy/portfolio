@@ -1,21 +1,71 @@
-import React, { useRef } from "react"
-import styled from "styled-components"
-import { Column, Container } from "../../layout/index"
+import React, { useRef, useEffect } from "react"
+import { Column, Container, Row } from "../../layout/index"
 import OutlinedButton from "../../OutlinedButton"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
-const Content = styled.article`
-  display: flex;
-  flex-direction: column;
-`
+gsap.registerPlugin(ScrollTrigger)
 
 const ProjectMomo = () => {
-  const image = useRef(null)
+  const refStart = useRef(null)
+  const refImage1 = useRef(null)
+  const refImage2 = useRef(null)
+
+  useEffect(() => {
+    gsap.to(refImage1.current, {
+      yPercent: -80,
+      ease: "none",
+      scrollTrigger: {
+        trigger: refStart.current,
+        scrub: true,
+      },
+    })
+  }, [refStart])
+
+  useEffect(() => {
+    let proxy = { skew: 0 },
+      skewSetter = gsap.quickSetter(refImage2.current, "skewY", "deg"),
+      clamp = gsap.utils.clamp(-5, 5)
+
+    ScrollTrigger.create({
+      onUpdate: self => {
+        let skew = clamp(self.getVelocity() / -200)
+
+        if (Math.abs(skew) > Math.abs(proxy.skew)) {
+          proxy.skew = skew
+          gsap.to(proxy, {
+            skew: 0,
+            duration: 0.3,
+            ease: "none",
+            overwrite: true,
+            onUpdate: () => skewSetter(proxy.skew),
+          })
+        }
+      },
+    })
+
+    gsap.set(refImage2.current, {
+      transformOrigin: "left center",
+      force3D: true,
+    })
+
+    gsap.to(refImage2.current, {
+      yPercent: -100,
+      ease: "none",
+      scrollTrigger: {
+        trigger: refImage1.current,
+        scrub: true,
+      },
+    })
+  }, [refStart])
 
   return (
-    <Container>
+    <Container ref={refStart}>
       <Column size="3">
-        <img src={"../../images/momoLanding.jpg"} alt="" ref={image} />
-        <Content>
+        <Row margin="0 0 2rem 0">
+          <img src={"../../images/momoLanding.jpg"} alt="" ref={refImage1} />
+        </Row>
+        <Row>
           <p>
             MOMO <br />
             E-commerce Fashion Store <br />
@@ -35,9 +85,9 @@ const ProjectMomo = () => {
           >
             VIEW PROJECT
           </OutlinedButton>
-        </Content>
+        </Row>
       </Column>
-      <Column hidden={{ mobile: true }}>
+      <Column hidden={{ mobile: true }} ref={refImage2}>
         <img src={"../../images/momoShop.jpg"} alt="momo shop" />
         <img src={"../../images/momoPayment.jpg"} alt="momo payment" />
       </Column>

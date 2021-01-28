@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, forwardRef } from "react"
 import styled from "styled-components"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Wrapper, Container, Column } from "../layout/index"
+import { Wrapper, Container, Column, Row } from "../layout/index"
 import Title from "../Title"
 import LinkButton from "../LinkButton"
 
@@ -10,61 +10,17 @@ import LinkButton from "../LinkButton"
 gsap.registerPlugin(ScrollTrigger)
 
 const AboutWrapper = styled(Wrapper)`
+  position: relative;
+
   p {
     line-height: 2;
-  }
-`
-
-const TextContainer = styled.div`
-  span {
-    margin: 0 1rem 2rem 0;
-    cursor: pointer;
-
-    &:hover {
-      color: #2aaeba;
-    }
-  }
-
-  /* @media ${({ theme }) => theme.device.tablet} {
-    span {
-      margin-top: 500px;
-    }
-  } */
-
-  @media ${({ theme }) => theme.device.tabletSm} {
-    span {
-      margin-top: 0;
-    }
-  }
-`
-
-const EduTitle = styled.div`
-  display: inline-block;
-  border-bottom: 2px solid;
-  padding-bottom: 3px;
-
-  @media ${({ theme }) => theme.device.mobile} {
-    margin-top: 2.4rem;
-    padding-bottom: 1px;
   }
 `
 
 const About = ({ scrollToAbout }, refSection) => {
   const [language, setLanguage] = useState("ko")
 
-  const refTitle = useRef(null)
   const refProfile = useRef(null)
-
-  /*useEffect(() => {
-    gsap.to(refTitle.current, {
-      yPercent: -220,
-      ease: "none",
-      scrollTrigger: {
-        trigger: refSection.current,
-        scrub: true,
-      },
-    })
-  }, [refSection])
 
   useEffect(() => {
     gsap.to(refProfile.current, {
@@ -75,20 +31,23 @@ const About = ({ scrollToAbout }, refSection) => {
         scrub: true,
       },
     })
-  }, [refSection])*/
+  }, [refSection])
 
   return (
     <AboutWrapper ref={refSection}>
-      <Title text="About Me" ref={refTitle} />
-
-      <Container column="column">
-        <Column size="2">
-          <div ref={refProfile}>
-            <img src={"../../images/minji_dark.jpg"} alt=""></img>
-          </div>
-        </Column>
-        <Column>
-          <TextContainer>
+      <Title text="About Me" />
+      <Wrapper
+        maxWidth="auto"
+        marginBottom="4rem"
+        padding="0"
+        style={{ zIndex: -1, position: "relative" }}
+      >
+        <Container column="column">
+          <Column size="2">
+            <img src={"../../images/minji_dark.jpg"} alt="" ref={refProfile} />
+          </Column>
+          <Column>
+            {/* <TextContainer> */}
             <LinkButton onClick={() => setLanguage("eng")}>English</LinkButton>
             <LinkButton onClick={() => setLanguage("ko")}>한국어</LinkButton>
             {language === "eng" ? (
@@ -123,14 +82,15 @@ const About = ({ scrollToAbout }, refSection) => {
                 다른 부서와의 소통 능력을 향상합니다.
               </p>
             )}
-          </TextContainer>
-        </Column>
-      </Container>
-      <Wrapper maxWidth="auto" marginBottom="0">
+            {/* </TextContainer> */}
+          </Column>
+        </Container>
+      </Wrapper>
+      <Wrapper maxWidth="auto" marginBottom="0" padding="0">
         {language === "eng" ? (
-          <Container column="column">
+          <Container column="column" alignItems="flex-start">
             <Column>
-              <article>
+              <Row>
                 <h3>Education</h3>
 
                 <p>Fine Arts - Sunhwa Arts High School</p>
@@ -150,31 +110,30 @@ const About = ({ scrollToAbout }, refSection) => {
                   Minor, Computer Science and Engineering - Seoul National
                   University of Science and Technology
                 </p>
-              </article>
+              </Row>
             </Column>
 
             <Column>
-              <article>
+              <Row margin="0 0 2rem 0">
                 <h3>Volunteer Experience</h3>
                 <p>
                   2019-2020 Buddy Program - International Student Club of Seoul
                   National University of Science and Technology
                 </p>
-              </article>
-
-              <article>
+              </Row>
+              <Row>
                 <h3>Award</h3>
                 <p>
                   2020 Exellence Awards, start-up contest by green campus town
                   in Nowon
                 </p>
-              </article>
+              </Row>
             </Column>
           </Container>
         ) : (
-          <Container column="column">
+          <Container column="column" alignItems="flex-start">
             <Column>
-              <article>
+              <Row>
                 <h3>교육</h3>
                 <p>서양화과 - 선화예술고등학교</p>
                 <p>
@@ -182,26 +141,26 @@ const About = ({ scrollToAbout }, refSection) => {
                   공과대학교, 독일
                 </p>
                 <p>
-                  2020 대학 연합 창업 & 프로그래밍 동아리 활동 - 멋쟁이 사자처럼
-                  8기
+                  2020 대학 연합 창업 &amp; 프로그래밍 동아리 활동 - 멋쟁이
+                  사자처럼 8기
                 </p>
                 <p>조형예술학과 학사 - 서울과학기술대학교</p>
                 <p>컴퓨터공학 부전공 - 서울과학기술대학교</p>
-              </article>
+              </Row>
             </Column>
             <Column>
-              <article>
+              <Row margin="0 0 2rem 0">
                 <h3>봉사활동 경험</h3>
                 <p>
                   2019-2020 외국인 유학생, 교환학생 버디 프로그램 -
                   서울과학기술대학교 국제 학생회
                 </p>
-              </article>
+              </Row>
 
-              <article>
+              <Row>
                 <h3>수상</h3>
-                <p> 2020 우수상, 노원 그린캠퍼스타운 스타트업 창업 콘테스트</p>
-              </article>
+                <p>2020 우수상, 노원 그린캠퍼스타운 스타트업 창업 콘테스트</p>
+              </Row>
             </Column>
           </Container>
         )}

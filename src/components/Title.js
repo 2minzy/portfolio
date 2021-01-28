@@ -1,42 +1,19 @@
 import React from "react"
 import styled, { css } from "styled-components"
 
-// const TitleWrapper = styled.div`
-
-/* div {
-    line-height: 5rem;
-  }
-
-  .transparent {
-    -webkit-text-stroke: 0.02em #fff;
-    color: transparent;
-  } */
-
-/* @media ${({ theme }) => theme.device.tablet} {
-    font-size: 4rem;
-    margin-right: 3rem;
-
-    div {
-      line-height: 3rem;
-    }
-  }
-
-  @media ${({ theme }) => theme.device.mobile} {
-    margin-left: 260px;
-    font-size: 2rem;
-    div {
-      line-height: 2rem;
-    }
-  }
-
-  @media ${({ theme }) => theme.device.mobileSm} {
-    margin-left: 220px;
-  } */
-// `
-
 const TitleWrapper = styled.div`
   position: relative;
   z-index: 1;
+
+  display: ${({ hidden }) => (hidden?.desktop ? "none" : "initial")};
+
+  @media ${({ theme }) => theme.device.tablet} {
+    display: ${({ hidden }) => (hidden?.tablet ? "none" : "initial")};
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    display: ${({ hidden }) => (hidden?.mobile ? "none" : "initial")};
+  }
 
   ${({ vertical }) =>
     vertical &&
@@ -50,26 +27,27 @@ const TitleWrapper = styled.div`
       ? css`
           position: absolute;
           top: 0;
-          right: -3rem;
+          right: 0;
         `
       : css`
-          transform: rotate(180deg);
+          transform: rotate(180deg) translateX(-0.5rem);
           position: absolute;
           bottom: 0;
-          left: -3rem;
+          left: 0;
         `)}
 `
 
 const FilledTitle = styled.h2`
   color: grey;
   margin: 0;
-  /* position: absolute; */
-  /* z-index: 1; */
-  /* right: 0; */
   font-size: 6vw;
   font-family: "Monument", sans-serif;
   text-transform: uppercase;
   line-height: 0.8;
+
+  @media ${({ theme }) => theme.device.mobile} {
+    font-size: 8vw;
+  }
 `
 
 const OutlinedTitle = styled(FilledTitle)`
@@ -77,9 +55,9 @@ const OutlinedTitle = styled(FilledTitle)`
   color: transparent;
 `
 
-const Title = ({ text, vertical, float }) => {
+const Title = ({ text, vertical, float, hidden }) => {
   return (
-    <TitleWrapper vertical={vertical} float={float}>
+    <TitleWrapper vertical={vertical} float={float} hidden={hidden}>
       <FilledTitle>{text}</FilledTitle>
       <OutlinedTitle>{text}</OutlinedTitle>
     </TitleWrapper>

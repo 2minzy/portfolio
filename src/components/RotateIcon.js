@@ -30,36 +30,9 @@ const Container = styled.div`
     }
   }
 
-  @media ${({ theme }) => theme.device.tablet} {
-    margin-left: -180px;
-
-    svg {
-      height: 160px;
-    }
-  }
-
-  @media ${({ theme }) => theme.device.tabletSm} {
-    margin-left: -220px;
-
-    svg {
-      height: 140px;
-    }
-  }
-
   @media ${({ theme }) => theme.device.mobile} {
-    margin-left: -100px;
-
-    svg {
-      height: 100px;
-    }
-  }
-
-  @media ${({ theme }) => theme.device.mobileSm} {
-    margin-left: -80px;
-
-    svg {
-      height: 100px;
-    }
+    width: 100px;
+    transform: translate(-22px, -40px);
   }
 `
 
@@ -75,7 +48,7 @@ const SVGText = () => {
       d="M 75 75 m -50, 0 a 50, 50 0 1, 1 100, 0 a 50, 50 0 1, 1 -100, 0"
     />
     <text fill="#fff">
-      <textPath xlink:href="#curve"> SCROLL DOWN ☆☆☆☆ </textPath>
+      <textPath xlink:href="#curve"> SCROLL DOWN ☆☆☆☆☆☆</textPath>
     </text>
   </svg>`,
         }}
