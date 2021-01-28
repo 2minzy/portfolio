@@ -1,11 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
-
-@import url("//db.onlinewebfonts.com/c/88f10bf18a36407ef36bf30bc25a3618?family=Suisse+Intl");
+@font-face {
+  font-family: "Suisse Intl";
+  src: url("https://db.onlinewebfonts.com/t/88f10bf18a36407ef36bf30bc25a3618.eot");
+  src: url("https://db.onlinewebfonts.com/t/88f10bf18a36407ef36bf30bc25a3618.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/88f10bf18a36407ef36bf30bc25a3618.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/88f10bf18a36407ef36bf30bc25a3618.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/88f10bf18a36407ef36bf30bc25a3618.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/88f10bf18a36407ef36bf30bc25a3618.svg#Suisse Intl")
+      format("svg");
+}
 
 @font-face {
   font-family: "Monument";
   src: local("Monument"),
     url("../../static/fonts/MonumentExtended-Ultrabold.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
@@ -14,13 +27,59 @@
     format("woff");
   font-weight: normal;
   font-style: normal;
+  unicode-range: U+AC00-D7AF;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%; /* normally 1rem -> 16px, when font-size (in html) 62.5% then 1rem -> 10px*/
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body,
+input,
+textarea,
+button {
+  font-family: "Suisse Intl", "S-CoreDream-3Light", sans-serif;
+  font-size: 1.4rem;
+}
+
+body {
+  margin: 0;
+  background-color: #000;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+}
+
+a:hover {
+  color: #2aaeba;
+}
+
+/* button {
+  border: none;
+  outline: none;
+  text-align: center;
+} */
+
 img {
   width: 100%;
   height: auto;
+}
+
+a.logo h1,
+a.logo h2 {
+  font-size: 1.4rem;
+  margin: 0;
 }

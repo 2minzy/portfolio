@@ -1,21 +1,16 @@
 import React, { forwardRef } from "react"
 import styled from "styled-components"
 
-const FooterContainer = styled.div`
+const FooterContainer = styled.footer`
   font-family: "Suisse Intl", sans-serif;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   height: 80px;
   text-align: center;
-  padding: 40px;
-  margin-right: 1rem;
-  margin-bottom: 2rem;
+  margin: 40px;
 
   @media ${({ theme }) => theme.device.tablet} {
-    font-size: 0.8rem;
-  }
-
-  @media ${({ theme }) => theme.device.tablet} {
-    padding: 20px;
+    font-size: 1rem;
+    margin: 20px;
     height: 40px;
   }
 `
