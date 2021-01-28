@@ -15,6 +15,34 @@ const AboutWrapper = styled(Wrapper)`
   p {
     line-height: 2;
   }
+
+  .title {
+    position: absolute;
+  }
+  .image {
+    z-index: -1;
+    position: relative;
+  }
+
+  .border1 {
+    &:after {
+      content: "";
+      display: block;
+      width: 34px;
+      border-bottom: 2px solid;
+      margin-top: 0.4rem;
+    }
+  }
+
+  .border2 {
+    &:after {
+      content: "";
+      display: block;
+      width: 64px;
+      border-bottom: 2px solid;
+      margin-top: 0.4rem;
+    }
+  }
 `
 
 const About = ({ scrollToAbout }, refSection) => {
@@ -24,7 +52,7 @@ const About = ({ scrollToAbout }, refSection) => {
 
   useEffect(() => {
     gsap.to(refProfile.current, {
-      yPercent: -50,
+      yPercent: -20,
       ease: "none",
       scrollTrigger: {
         trigger: refSection.current,
@@ -35,16 +63,16 @@ const About = ({ scrollToAbout }, refSection) => {
 
   return (
     <AboutWrapper ref={refSection}>
-      <Title text="About Me" />
-      <Wrapper
-        maxWidth="auto"
-        marginBottom="4rem"
-        padding="0"
-        style={{ zIndex: -1, position: "relative" }}
-      >
+      <Title text="About Me" className="title" />
+      <Wrapper maxWidth="auto" marginBottom="4rem" padding="0">
         <Container column="column">
           <Column size="2">
-            <img src={"../../images/minji_dark.jpg"} alt="" ref={refProfile} />
+            <img
+              src={"../../images/minji_dark.jpg"}
+              alt=""
+              className="image"
+              ref={refProfile}
+            />
           </Column>
           <Column>
             {/* <TextContainer> */}
@@ -134,7 +162,7 @@ const About = ({ scrollToAbout }, refSection) => {
           <Container column="column" alignItems="flex-start">
             <Column>
               <Row>
-                <h3>교육</h3>
+                <h3 className="border1">교육</h3>
                 <p>서양화과 - 선화예술고등학교</p>
                 <p>
                   2018-2019 교환학생 프로그램, 커뮤니케이션 디자인 - 마인츠
@@ -150,7 +178,7 @@ const About = ({ scrollToAbout }, refSection) => {
             </Column>
             <Column>
               <Row margin="0 0 2rem 0">
-                <h3>봉사활동 경험</h3>
+                <h3 className="border2">봉사활동</h3>
                 <p>
                   2019-2020 외국인 유학생, 교환학생 버디 프로그램 -
                   서울과학기술대학교 국제 학생회
@@ -158,7 +186,7 @@ const About = ({ scrollToAbout }, refSection) => {
               </Row>
 
               <Row>
-                <h3>수상</h3>
+                <h3 className="border1">수상</h3>
                 <p>2020 우수상, 노원 그린캠퍼스타운 스타트업 창업 콘테스트</p>
               </Row>
             </Column>

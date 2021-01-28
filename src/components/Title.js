@@ -58,8 +58,8 @@ const OutlinedTitle = styled(FilledTitle)`
 const Title = ({ text, vertical, float, hidden }) => {
   return (
     <TitleWrapper vertical={vertical} float={float} hidden={hidden}>
-      <FilledTitle>{text}</FilledTitle>
       <OutlinedTitle>{text}</OutlinedTitle>
+      <FilledTitle>{text}</FilledTitle>
     </TitleWrapper>
   )
 }

@@ -53,7 +53,7 @@ const ProjectMomo = () => {
       yPercent: -100,
       ease: "none",
       scrollTrigger: {
-        trigger: refImage1.current,
+        trigger: refStart.current,
         scrub: true,
       },
     })
@@ -87,7 +87,7 @@ const ProjectMomo = () => {
           </OutlinedButton>
         </Row>
       </Column>
-      <Column hidden={{ mobile: true }} ref={refImage2}>
+      <Column hidden={{ tablet: true, mobile: true }} ref={refImage2}>
         <img src={"../../images/momoShop.jpg"} alt="momo shop" />
         <img src={"../../images/momoPayment.jpg"} alt="momo payment" />
       </Column>
