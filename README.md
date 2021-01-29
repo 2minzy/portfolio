@@ -1,2 +1,3 @@
-### 리팩토링중입니다.
+### Minji Lee - Portfolio 
+https://www.minzy.studio/
 
