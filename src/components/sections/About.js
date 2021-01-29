@@ -24,24 +24,10 @@ const AboutWrapper = styled(Wrapper)`
     position: relative;
   }
 
-  .border1 {
-    &:after {
-      content: "";
-      display: block;
-      width: 34px;
-      border-bottom: 2px solid;
-      margin-top: 0.4rem;
-    }
-  }
-
-  .border2 {
-    &:after {
-      content: "";
-      display: block;
-      width: 64px;
-      border-bottom: 2px solid;
-      margin-top: 0.4rem;
-    }
+  h3 span {
+    padding-bottom: 10px;
+    border-bottom: 2px solid;
+    line-height: 44px;
   }
 `
 
@@ -119,17 +105,9 @@ const About = ({ scrollToAbout }, refSection) => {
           <Container column="column" alignItems="flex-start">
             <Column>
               <Row>
-                <h3>Education</h3>
-
-                <p>Fine Arts - Sunhwa Arts High School</p>
-                <p>
-                  2018-2019 Exchange Student Program, Communication Design -
-                  Hochschule Mainz,
-                  <br /> University of Applied Sciences
-                </p>
-                <p>
-                  2020 Start-up & computer programming student club - LikeLion
-                </p>
+                <h3>
+                  <span>Education</span>
+                </h3>
                 <p>
                   BFA, Fine Arts - Seoul National University of Science and
                   Technology
@@ -138,19 +116,32 @@ const About = ({ scrollToAbout }, refSection) => {
                   Minor, Computer Science and Engineering - Seoul National
                   University of Science and Technology
                 </p>
+                <p>
+                  2018-2019 Exchange Student Program, Communication Design -
+                  Hochschule Mainz,
+                  <br /> University of Applied Sciences
+                </p>
+                <p>
+                  2020 Start-up & computer programming student club - LikeLion
+                </p>
+                <p>Fine Arts - Sunhwa Arts High School</p>
               </Row>
             </Column>
 
             <Column>
               <Row margin="0 0 2rem 0">
-                <h3>Volunteer Experience</h3>
+                <h3>
+                  <span>Volunteer Experience</span>
+                </h3>
                 <p>
                   2019-2020 Buddy Program - International Student Club of Seoul
                   National University of Science and Technology
                 </p>
               </Row>
               <Row>
-                <h3>Award</h3>
+                <h3>
+                  <span>Award</span>
+                </h3>
                 <p>
                   2020 Exellence Awards, start-up contest by green campus town
                   in Nowon
@@ -162,8 +153,11 @@ const About = ({ scrollToAbout }, refSection) => {
           <Container column="column" alignItems="flex-start">
             <Column>
               <Row>
-                <h3 className="border1">교육</h3>
-                <p>서양화과 - 선화예술고등학교</p>
+                <h3>
+                  <span>교육</span>
+                </h3>
+                <p>조형예술학과 학사 - 서울과학기술대학교</p>
+                <p>컴퓨터공학 부전공 - 서울과학기술대학교</p>
                 <p>
                   2018-2019 교환학생 프로그램, 커뮤니케이션 디자인 - 마인츠
                   공과대학교, 독일
@@ -172,13 +166,14 @@ const About = ({ scrollToAbout }, refSection) => {
                   2020 대학 연합 창업 &amp; 프로그래밍 동아리 활동 - 멋쟁이
                   사자처럼 8기
                 </p>
-                <p>조형예술학과 학사 - 서울과학기술대학교</p>
-                <p>컴퓨터공학 부전공 - 서울과학기술대학교</p>
+                <p>서양화과 - 선화예술고등학교</p>
               </Row>
             </Column>
             <Column>
               <Row margin="0 0 2rem 0">
-                <h3 className="border2">봉사활동</h3>
+                <h3>
+                  <span>봉사활동</span>
+                </h3>
                 <p>
                   2019-2020 외국인 유학생, 교환학생 버디 프로그램 -
                   서울과학기술대학교 국제 학생회
@@ -186,7 +181,9 @@ const About = ({ scrollToAbout }, refSection) => {
               </Row>
 
               <Row>
-                <h3 className="border1">수상</h3>
+                <h3>
+                  <span>수상</span>
+                </h3>
                 <p>2020 우수상, 노원 그린캠퍼스타운 스타트업 창업 콘테스트</p>
               </Row>
             </Column>
