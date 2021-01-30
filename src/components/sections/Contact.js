@@ -49,6 +49,17 @@ const Contact = () => {
           </Info>
 
           <Info>
+            <h4>LINKEDIN</h4>
+            <a
+              href="https://www.linkedin.com/in/minji-lee-dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              linkedin.com/in/minji-dev
+            </a>
+          </Info>
+
+          <Info>
             <h4>GITHUB</h4>
             <a
               href="https://github.com/2minzy"
