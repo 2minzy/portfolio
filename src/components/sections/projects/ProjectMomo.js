@@ -12,8 +12,8 @@ const ProjectMomo = () => {
   const refImage2 = useRef(null)
 
   useEffect(() => {
-    gsap.to(refImage1.current, {
-      yPercent: -80,
+    gsap.to(refImage2.current, {
+      yPercent: -60,
       ease: "none",
       scrollTrigger: {
         trigger: refStart.current,
@@ -24,7 +24,7 @@ const ProjectMomo = () => {
 
   useEffect(() => {
     let proxy = { skew: 0 },
-      skewSetter = gsap.quickSetter(refImage2.current, "skewY", "deg"),
+      skewSetter = gsap.quickSetter(refImage1.current, "skewY", "deg"),
       clamp = gsap.utils.clamp(-5, 5)
 
     ScrollTrigger.create({
@@ -44,18 +44,9 @@ const ProjectMomo = () => {
       },
     })
 
-    gsap.set(refImage2.current, {
+    gsap.set(refImage1.current, {
       transformOrigin: "left center",
       force3D: true,
-    })
-
-    gsap.to(refImage2.current, {
-      yPercent: -100,
-      ease: "none",
-      scrollTrigger: {
-        trigger: refStart.current,
-        scrub: true,
-      },
     })
   }, [refStart])
 
