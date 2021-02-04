@@ -19,6 +19,7 @@ const AboutWrapper = styled(Wrapper)`
   .title {
     position: absolute;
   }
+
   .image {
     z-index: -1;
     position: relative;
@@ -28,6 +29,12 @@ const AboutWrapper = styled(Wrapper)`
     padding-bottom: 10px;
     border-bottom: 2px solid;
     line-height: 44px;
+  }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    p {
+      font-size: 1.2rem;
+    }
   }
 `
 
