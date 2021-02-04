@@ -32,7 +32,8 @@ const AboutWrapper = styled(Wrapper)`
   }
 
   @media ${({ theme }) => theme.device.tablet} {
-    p {
+    p,
+    .btn {
       font-size: 1.2rem;
     }
   }
@@ -69,8 +70,12 @@ const About = ({ scrollToAbout }, refSection) => {
           </Column>
           <Column>
             {/* <TextContainer> */}
-            <LinkButton onClick={() => setLanguage("eng")}>English</LinkButton>
-            <LinkButton onClick={() => setLanguage("ko")}>한국어</LinkButton>
+            <LinkButton className="btn" onClick={() => setLanguage("eng")}>
+              English
+            </LinkButton>
+            <LinkButton className="btn" onClick={() => setLanguage("ko")}>
+              한국어
+            </LinkButton>
             {language === "eng" ? (
               <p>
                 I'm a Front-end developer who has diverse backgrounds such as
