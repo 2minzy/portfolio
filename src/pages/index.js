@@ -1,5 +1,6 @@
 import React, { useRef } from "react"
 import Header from "../components/sections/Header"
+import SEO from "../components/seo"
 import Splash from "../components/sections/Splash"
 import About from "../components/sections/About"
 import Projects from "../components/sections/Projects"
@@ -48,6 +49,11 @@ const IndexPage = () => {
   return (
     <MainWrapper>
       <ThemeProvider theme={theme}>
+        <SEO
+          title="이민지 프론드엔드 개발자 포트폴리오 | Frontend Developer Minji Lee Portfolio"
+          description="끊임 없이 배우고 성장하며, UI/UX에 관심이 많은 프론트엔드 개발자 이민지의 포트폴리오 웹사이트 입니다. | Hi! I'm Minji Lee who is passionate and creative Front-end Developer
+          with experience in UI/UX Design, Fine Arts and Computer Science."
+        />
         <Header
           scrollToAbout={scrollToAbout}
           scrollToProjects={scrollToProjects}
